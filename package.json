@@ -1,0 +1,15 @@
+{
+  "name": "pol_map3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "node server.mjs"
+  },
+  "author": "Tejas Kohli",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "path": "^0.12.7"
+  }
+}
