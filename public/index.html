@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Tejas' Map Game</title>
+  <script src="app.js" type="module"></script>
+</head>
+<body>
+  <div id="controls">
+    <div id="title" class="controlBox">
+      <p>Tejas' Map Game</p>
+    </div>
+    <div id="settings" class="controlBox">
+      <input type="button" value="zoom">
+      <br>
+      <input type="button" value="dateBlocs">
+    </div>
+    <div id="victor" class="controlBox">
+        <p>Select the winner:</p>
+        <input type="radio" id="victor-democrat" name="victor-name" value="Democrat">
+        <label for="victor-democrat">Democrat</label><br>
+        <input type="radio" id="victor-republican" name="victor-name" value="Republican">
+        <label for="victor-republican">Republican</label><br>
+        <input type="radio" id="victor-neither" name="victor-name" value="Independent or Third Party">
+        <label for="victor-neither">Independent or Third Party</label>
+    </div>
+    <div id="margin" class="controlBox">
+      <p>Write the margin:</p>
+      <input type="number" max="100" min="0" step="0.1">
+    </div>
+    <div id="date" class="controlBox">
+      <p>Write the year:</p>
+      <input type="number" max="2022" min="1788" step="1">
+    </div>
+  </div>
+  <div id="display">
+    <canvas id="can"></canvas>
+  </div>
+  <img src="AlabamaCounty.png" id="AlabamaCounty">
+</body>
+</html>

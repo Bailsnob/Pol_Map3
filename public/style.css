@@ -1,0 +1,60 @@
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+#controls {
+  background-color: rgb(220, 220, 220);
+  position: absolute;
+}
+
+.controlsLandscape {
+  top: 0;
+  left: 0;
+  width: 25%;
+  height: 100%;
+}
+
+.controlsPortrait {
+  width: 100%;
+  height: 25%;
+  top: 75%;
+  left: 0;
+}
+
+#display {
+  background-color: white;
+  position: absolute;
+}
+
+.displayLandscape {
+  top: 0;
+  left: 25%;
+  width: 75%;
+  height: 100%;
+}
+
+.displayPortrait {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 75%;
+}
+
+.controlBox {
+  height: 20%;
+  text-align: center;
+}
+
+.controlBox > p {
+  margin-block-start: 0em;
+  margin-block-end: 0.25em;
+}
+img {
+  display: none;
+}

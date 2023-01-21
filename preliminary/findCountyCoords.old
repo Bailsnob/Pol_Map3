@@ -1,0 +1,145 @@
+const fs = require("fs");
+let countyAndSeedPoints = {};
+
+getBlankMapSizes().then((sizes) => {
+  getStateBoundaries().then((boundaries) => {
+    getCountyLatLngs().then((countyLatLngs) => {
+      for (let i = 0; i < length(countyLatLngs); ++i) {
+        countyAndSeedPoints[countyLatLngs[i].name] = {
+          state: countyLatLngs[i].state,
+          xCoord: findSeedPoint(
+            0,
+            sizes[countyLatLngs[i].state][0],
+            0,
+            sizes[countyLatLngs[i].state][1],
+            [countyLatLngs[i].lat, countyLatLngs[i].lng],
+            boundaries[countyLatLngs[i].state].max_lat,
+            boundaries[countyLayLngs[i].state].min_lat,
+            boundaries[countyLatLngs[i].state].max_lng,
+            boundaries[countyLatLngs[i].state].min_lng
+          )[0],
+          yCoord: findSeedPoint(
+            0,
+            sizes[countyLatLngs[i].state][0],
+            0,
+            sizes[countyLatLngs[i].state][1],
+            [countyLatLngs[i].lat, countyLatLngs[i].lng],
+            boundaries[countyLatLngs[i].state].max_lat,
+            boundaries[countyLatLngs[i].state].min_lat,
+            boundaries[countyLatLngs[i].state].max_lng,
+            boundaries[countyLatLngs[i].state].min_lng
+          )[1],
+        };
+      }
+    });
+  });
+});
+
+//note: this function currently produces a 2d vector, should probably make it produce points
+function findSeedPoint(
+  minX,
+  maxX,
+  minY,
+  maxY,
+  countyLatLng,
+  maxLat,
+  minLat,
+  maxLong,
+  minLong
+) {
+  return [
+    ((countyLatLng[0] - minLong) * (maxX - minX)) / (maxLong - minLong) + minX,
+    ((countyLatLng[1] - minLat) * (maxY - minY)) / (maxLat - minLat) + minY,
+  ];
+}
+
+function getBlankMapSizes() {
+  return new Promise((resolve, reject) => {
+    fs.readFile("BlankMapSizes.csv", "utf-8", (err, data) => {
+      //to do:
+      if (err) {
+        reject(err);
+      }
+      let csvRows = data.split("\n");
+      let results = {};
+      for (let i = 1; i < csvRows.length; ++i) {
+        let row = csvRows[i].split(",");
+        results[strip(row[0])] = {
+          width: Number(strip(row[1])),
+          height: Number(strip(row[2])),
+        };
+      }
+      resolve(results);
+    });
+  });
+}
+
+function getStateBoundaries() {
+  return new Promise((resolve, reject) => {
+    fs.readFile("stateBoundaries.json", "utf-8", (err, data) => {
+      if (err) {
+        reject(err);
+      }
+      let dataJson = JSON.parse(data);
+      let results = {};
+      for (let datum in dataJson) {
+        results[dataJson[datum].name] = {
+          min_lat: dataJson[datum].min_lat,
+          max_lat: dataJson[datum].max_lat,
+          min_lng: dataJson[datum].min_lng,
+          max_lng: dataJson[datum].max_lng,
+        };
+      }
+      resolve(results);
+    });
+  });
+}
+
+function getCountyLatLngs() {
+  return new Promise((resolve, reject) => {
+    fs.readFile("uscounties.csv", "utf-8", (err, data) => {
+      if (err) {
+        reject(err);
+      }
+      let csvRows = data.split("\n"); //important rows are 0, 5, 6, 7
+      let results = {};
+      for (let i = 1; i < csvRows.length; ++i) {
+        let row = csvRows[i].split(",");
+        results[strip(row[0])] = {
+          name: strip(row[0]),
+          state: strip(row[5]),
+          lat: Number(strip(row[6])),
+          lng: Number(strip(row[7])),
+        };
+      }
+      resolve(results);
+    });
+  });
+}
+
+function strip(str) {
+  result = str.trim();
+  return result.slice(1, result.length - 1);
+}
+
+// function organizeCountyData() {
+//   return new Promise((resolve, reject) => {
+//     fs.readFile("uscounties.csv", "utf-8", (err, data) => {
+//       if (err) {
+//         reject(err);
+//       }
+//       let csvRows = data.split("\n");
+//       for (let i = 0; i < csvRows.length - 1; ++i) {
+//         let row = csvRows[i].split(",");
+//         csvRows[i] = {
+//           state: row[5].substring(1, row[5].length - 1),
+//           county: row[0].substring(1, row[0].length - 1),
+//           latitude: Number(row[6].substring(1, row[6].length - 1)),
+//           longitude: Number(row[7].substring(1, row[7].length - 1)),
+//           seedPoint: undefined,
+//         };
+//       }
+//       resolve(csvRows);
+//     });
+//   });
+// }
