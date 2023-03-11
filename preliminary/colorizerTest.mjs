@@ -47,44 +47,46 @@ csvToArray("../db/Presidential Races/2000/Massachusetts.csv").then((totals) => {
       con.fillRect(0, 0, sizes[stateIndex][1], sizes[stateIndex][2]);
       con.drawImage(img, 0, 0, sizes[stateIndex][1], sizes[stateIndex][2]);
 
-      csvToArray("./CountyCoordsbyState/Massachusetts.csv").then((seedPoints) => {
-        convertNumbersInArray(seedPoints);
-        con.fillStyle = "red";
-        for (let i = 0; i < seedPoints.length; ++i) {
-          let countyRow;
-          for (let j = 0; j < totals.length; ++j) {
-            if (totals[j][0] == seedPoints[i][0]) {
-              // console.log("match found");
-              colorRegion(
-                seedPoints[i][1],
-                seedPoints[i][2],
-                sizes[stateIndex][1],
-                sizes[stateIndex][2],
-                con,
-                getCorrectColor(totals[j][2], totals[j][3])
-              );
-              // console.log(getCorrectColor(totals[j][2], totals[j][3]));
+      csvToArray("./CountyCoordsbyState/Massachusetts.csv").then(
+        (seedPoints) => {
+          convertNumbersInArray(seedPoints);
+          con.fillStyle = "red";
+          for (let i = 0; i < seedPoints.length; ++i) {
+            let countyRow;
+            for (let j = 0; j < totals.length; ++j) {
+              if (totals[j][0] == seedPoints[i][0]) {
+                // console.log("match found");
+                colorRegion(
+                  seedPoints[i][1],
+                  seedPoints[i][2],
+                  sizes[stateIndex][1],
+                  sizes[stateIndex][2],
+                  con,
+                  getCorrectColor(totals[j][2], totals[j][3])
+                );
+                // console.log(getCorrectColor(totals[j][2], totals[j][3]));
+              }
             }
-          }
 
-          // con.fillRect(seedPoints[i][1] - 1, seedPoints[i][2] - 1, 2, 2);
+            // con.fillRect(seedPoints[i][1] - 1, seedPoints[i][2] - 1, 2, 2);
+          }
+          canvas
+            .loadImage("./CountyMapsOutline/MassachusettsCountyOutline.png")
+            .then((img) => {
+              con.drawImage(
+                img,
+                0,
+                0,
+                sizes[stateIndex][1],
+                sizes[stateIndex][2]
+              );
+              fs.writeFileSync(
+                "./ColoredMaps/Presidential Races/2000/Massachusetts.png",
+                can.toBuffer("image/png")
+              );
+            });
         }
-        canvas
-          .loadImage("./CountyMapsOutline/MassachusettsCountyOutline.png")
-          .then((img) => {
-            con.drawImage(
-              img,
-              0,
-              0,
-              sizes[stateIndex][1],
-              sizes[stateIndex][2]
-            );
-            fs.writeFileSync(
-              "./ColoredMaps/Presidential Races/2000/Massachusetts.png",
-              can.toBuffer("image/png")
-            );
-          });
-      });
+      );
     });
   });
 });
