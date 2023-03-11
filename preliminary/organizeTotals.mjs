@@ -385,6 +385,7 @@ csvToArray("electionTotals.csv").then((electionTotals) => {
       stateElectionTotals2020[i][j] = newRow;
     }
   }
+  console.log(stateElectionTotals2020);
 
   let pathYear = 2000;
   for (let i = 0; i < stateElectionTotals2000.length; ++i) {
