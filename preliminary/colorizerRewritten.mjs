@@ -60,10 +60,10 @@ function colorRegion(seedPointX, seedPointY, width, height, con, color) {
   con.fillStyle = color;
   con.fillRect(seedPointX, seedPointY, 1, 1);
   while (frontier.length) {
-    console.log("TOP OF WHITE LOOP");
+    // console.log("TOP OF WHITE LOOP");
     let newFrontier = [];
     for (let point of frontier) {
-      console.log("  POINT IN FRONTIER");
+      // console.log("  POINT IN FRONTIER");
       // console.log(point);
       for (let dy = -1; dy < 2; ++dy) {
         let y = point.y + dy;
@@ -92,7 +92,7 @@ function colorRegion(seedPointX, seedPointY, width, height, con, color) {
           }
           // console.log("    MADE IT");
           let rgba = getRGBA(x, y, imgData, width);
-          console.log("    ", rgba);
+          // console.log("    ", rgba);
           if (rgba.r === 0 && rgba.g === 0 && rgba.b === 0) {
             // console.log("    F", rgba);
             con.fillRect(x, y, 1, 1);

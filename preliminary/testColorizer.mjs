@@ -1,13 +1,13 @@
 import colorize from "./colorizerRewritten.mjs";
 
 colorize(
-  "Massachusetts", // strState
-  "../db/Presidential Races/2000/Massachusetts.csv", // urlElectionData
-  "./BlankMapsBW/MassachusettsCounty.png", // urlBlankMap
+  "Arizona", // strState
+  "../db/Presidential Races/1932/Arizona.csv", // urlElectionData
+  "./BlankMapsBW/ArizonaCounty.png", // urlBlankMap
   "BlankMapSizes.csv", // urlBlankMapSizes
-  "./CountyCoordsbyState/Massachusetts.csv", // urlSeeds
-  "./CountyMapsOutline/MassachusettsCountyOutline.png", // urlOverlay
-  "./ColoredMaps/Presidential Races/2000/Massachusetts.png", // urlResult
+  "./CountyCoordsbyState/Arizona.csv", // urlSeeds
+  "./CountyMapsOutline/ArizonaCountyOutline.png", // urlOverlay
+  "./ColoredMaps/Presidential Races/1932/Arizona.png", // urlResult
 ).then(() => console.log("FINISHED COLORING"));
 
 // colorize(

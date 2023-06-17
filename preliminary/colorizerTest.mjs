@@ -12,7 +12,7 @@ import canvas from "canvas";
 //  - Alaska is garbage
 //  - Arkansas picture has weird black splotch in the top left corner
 //  - Colorado and Hawaii maps have counties added recently
-//  - Massachusetts is messed up for some reason
+//  - Washington is messed up for some reason
 
 //if state has space:
 //  - no space
@@ -24,16 +24,19 @@ import canvas from "canvas";
 //black and whitifying:
 //  - go to image --> mode --> indexed mode --> use black and white 1 bit pallette
 
-csvToArray("../db/Presidential Races/2000/Massachusetts.csv").then((totals) => {
+let state = "Alabama";
+let year = "2016";
+
+csvToArray(`../db/Presidential Races/${year}/${state}.csv`).then((totals) => {
   convertNumbersInArray(totals);
   // console.log(totals);
-  canvas.loadImage("./BlankMapsBW/MassachusettsCounty.png").then((img) => {
+  canvas.loadImage(`./BlankMapsBW/${state.replace(' ', '')}County.png`).then((img) => {
     csvToArray("BlankMapSizes.csv").then((sizes) => {
       stripQuotesInArray(sizes);
       convertNumbersInArray(sizes);
       let stateIndex;
       for (let i = 0; i < sizes.length; ++i) {
-        if (sizes[i][0] == "Massachusetts") {
+        if (sizes[i][0] === state) {
           stateIndex = i;
         }
       }
@@ -47,15 +50,21 @@ csvToArray("../db/Presidential Races/2000/Massachusetts.csv").then((totals) => {
       con.fillRect(0, 0, sizes[stateIndex][1], sizes[stateIndex][2]);
       con.drawImage(img, 0, 0, sizes[stateIndex][1], sizes[stateIndex][2]);
 
-      csvToArray("./CountyCoordsbyState/Massachusetts.csv").then(
+      csvToArray(`./CountyCoordsbyState/${state}.csv`).then(
         (seedPoints) => {
           convertNumbersInArray(seedPoints);
           con.fillStyle = "red";
           for (let i = 0; i < seedPoints.length; ++i) {
             let countyRow;
             for (let j = 0; j < totals.length; ++j) {
-              if (totals[j][0] == seedPoints[i][0]) {
-                // console.log("match found");
+              // try {
+              //   seedPoints[j][0].toLowerCase();
+              // }
+              // catch {
+              //   console.log(j, totals[j], totals[j][0]);
+              // }
+              if (totals[j][0].toLowerCase() === seedPoints[i][0].toLowerCase()) {
+                // console.log("match found");cls
                 colorRegion(
                   seedPoints[i][1],
                   seedPoints[i][2],
@@ -71,7 +80,7 @@ csvToArray("../db/Presidential Races/2000/Massachusetts.csv").then((totals) => {
             // con.fillRect(seedPoints[i][1] - 1, seedPoints[i][2] - 1, 2, 2);
           }
           canvas
-            .loadImage("./CountyMapsOutline/MassachusettsCountyOutline.png")
+            .loadImage(`./CountyMapsOutline/${state.replace(' ', '')}CountyOutline.png`)
             .then((img) => {
               con.drawImage(
                 img,
@@ -81,7 +90,7 @@ csvToArray("../db/Presidential Races/2000/Massachusetts.csv").then((totals) => {
                 sizes[stateIndex][2]
               );
               fs.writeFileSync(
-                "./ColoredMaps/Presidential Races/2000/Massachusetts.png",
+                `./ColoredMaps/Presidential Races/${year}/${state.replace(' ', '')}.png`,
                 can.toBuffer("image/png")
               );
             });
@@ -123,6 +132,7 @@ function colorRegion(seedPointX, seedPointY, width, height, context, color) {
           // console.log(x, y);
           try {
             if (x < 0 || x >= width) continue;
+            // console.log("***");
             // console.log(x, y, width, height);
             if (isDrawn[y][x]) continue;
             let rgba = getRGBA(x, y, imgData, width);
@@ -136,8 +146,10 @@ function colorRegion(seedPointX, seedPointY, width, height, context, color) {
             newFrontier.push({ x: x, y: y });
             isDrawn[y][x] = true;
           } catch (msg) {
+            console.log("**************************");
             console.log(msg);
             console.log(x, y, width, height);
+            console.log("=========================");
           }
         }
       }
@@ -165,11 +177,11 @@ function getCorrectColor(party, percentage) {
     } else if (30 < percentage && percentage <= 40) {
       return "rgb(255, 204, 208)";
     } else {
-      return "rgb(255, 255, 255)";
+      return "rgb(255, 255, 0)";
     }
   } else if (party === "Democrat") {
     if (90 < percentage) {
-      return "rgb(0, 143, 132)";
+      return "rgb(0, 43, 132)";
     } else if (80 < percentage && percentage <= 90) {
       return "rgb(6, 69, 180)";
     } else if (70 < percentage && percentage <= 80) {
@@ -183,7 +195,7 @@ function getCorrectColor(party, percentage) {
     } else if (30 < percentage && percentage <= 40) {
       return "rgb(211, 231, 255)";
     } else {
-      return "rgb(255, 255, 255)";
+      return "rgb(255, 255, 0)";
     }
   }
   return "rgb(0, 0, 0)";
