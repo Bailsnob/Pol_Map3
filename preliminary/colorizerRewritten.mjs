@@ -153,11 +153,11 @@ function getCorrectColor(party, percentage) {
     } else if (30 < percentage && percentage <= 40) {
       return "rgb(255, 204, 208)";
     } else {
-      return "rgb(255, 255, 255)";
+      return "rgb(255, 255, 0)";
     }
   } else if (party === "Democrat") {
     if (90 < percentage) {
-      return "rgb(0, 143, 132)";
+      return "rgb(0, 43, 132)";
     } else if (80 < percentage && percentage <= 90) {
       return "rgb(6, 69, 180)";
     } else if (70 < percentage && percentage <= 80) {
@@ -167,11 +167,11 @@ function getCorrectColor(party, percentage) {
     } else if (50 < percentage && percentage <= 60) {
       return "rgb(134, 182, 242)";
     } else if (40 < percentage && percentage <= 50) {
-      return "rgb(165, 176, 255)";
+      return "rgb(185, 215, 255)";
     } else if (30 < percentage && percentage <= 40) {
       return "rgb(211, 231, 255)";
     } else {
-      return "rgb(255, 255, 255)";
+      return "rgb(255, 255, 0)";
     }
   }
   return "rgb(0, 0, 0)";

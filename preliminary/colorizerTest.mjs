@@ -24,34 +24,35 @@ import canvas from "canvas";
 //black and whitifying:
 //  - go to image --> mode --> indexed mode --> use black and white 1 bit pallette
 
-let state = "Alabama";
-let year = "2016";
+let state = "Minnesota";
+let year = "2020";
 
 csvToArray(`../db/Presidential Races/${year}/${state}.csv`).then((totals) => {
   convertNumbersInArray(totals);
   // console.log(totals);
-  canvas.loadImage(`./BlankMapsBW/${state.replace(' ', '')}County.png`).then((img) => {
-    csvToArray("BlankMapSizes.csv").then((sizes) => {
-      stripQuotesInArray(sizes);
-      convertNumbersInArray(sizes);
-      let stateIndex;
-      for (let i = 0; i < sizes.length; ++i) {
-        if (sizes[i][0] === state) {
-          stateIndex = i;
+  canvas
+    .loadImage(`./BlankMapsBW/${state.replace(" ", "")}County.png`)
+    .then((img) => {
+      csvToArray("./data/BlankMapSizes.csv").then((sizes) => {
+        stripQuotesInArray(sizes);
+        convertNumbersInArray(sizes);
+        let stateIndex;
+        for (let i = 0; i < sizes.length; ++i) {
+          if (sizes[i][0] === state) {
+            stateIndex = i;
+          }
         }
-      }
 
-      const can = canvas.createCanvas(
-        sizes[stateIndex][1],
-        sizes[stateIndex][2]
-      );
-      const con = can.getContext("2d");
-      con.fillStyle = "white";
-      con.fillRect(0, 0, sizes[stateIndex][1], sizes[stateIndex][2]);
-      con.drawImage(img, 0, 0, sizes[stateIndex][1], sizes[stateIndex][2]);
+        const can = canvas.createCanvas(
+          sizes[stateIndex][1],
+          sizes[stateIndex][2]
+        );
+        const con = can.getContext("2d");
+        con.fillStyle = "white";
+        con.fillRect(0, 0, sizes[stateIndex][1], sizes[stateIndex][2]);
+        con.drawImage(img, 0, 0, sizes[stateIndex][1], sizes[stateIndex][2]);
 
-      csvToArray(`./CountyCoordsbyState/${state}.csv`).then(
-        (seedPoints) => {
+        csvToArray(`./CountyCoordsbyState/${state}.csv`).then((seedPoints) => {
           convertNumbersInArray(seedPoints);
           con.fillStyle = "red";
           for (let i = 0; i < seedPoints.length; ++i) {
@@ -63,7 +64,9 @@ csvToArray(`../db/Presidential Races/${year}/${state}.csv`).then((totals) => {
               // catch {
               //   console.log(j, totals[j], totals[j][0]);
               // }
-              if (totals[j][0].toLowerCase() === seedPoints[i][0].toLowerCase()) {
+              if (
+                totals[j][0]/*.toLowerCase()*/ === seedPoints[i][0]/*.toLowerCase()*/
+              ) {
                 // console.log("match found");cls
                 colorRegion(
                   seedPoints[i][1],
@@ -80,7 +83,9 @@ csvToArray(`../db/Presidential Races/${year}/${state}.csv`).then((totals) => {
             // con.fillRect(seedPoints[i][1] - 1, seedPoints[i][2] - 1, 2, 2);
           }
           canvas
-            .loadImage(`./CountyMapsOutline/${state.replace(' ', '')}CountyOutline.png`)
+            .loadImage(
+              `./CountyMapsOutline/${state.replace(" ", "")}CountyOutline.png`
+            )
             .then((img) => {
               con.drawImage(
                 img,
@@ -90,14 +95,13 @@ csvToArray(`../db/Presidential Races/${year}/${state}.csv`).then((totals) => {
                 sizes[stateIndex][2]
               );
               fs.writeFileSync(
-                `./ColoredMaps/Presidential Races/${year}/${state.replace(' ', '')}.png`,
+                `./ColoredMaps/Presidential Races/${year}/${state}.png`,
                 can.toBuffer("image/png")
               );
             });
-        }
-      );
+        });
+      });
     });
-  });
 });
 
 function colorRegion(seedPointX, seedPointY, width, height, context, color) {
@@ -191,7 +195,7 @@ function getCorrectColor(party, percentage) {
     } else if (50 < percentage && percentage <= 60) {
       return "rgb(134, 182, 242)";
     } else if (40 < percentage && percentage <= 50) {
-      return "rgb(165, 176, 255)";
+      return "rgb(185, 215, 255)";
     } else if (30 < percentage && percentage <= 40) {
       return "rgb(211, 231, 255)";
     } else {
