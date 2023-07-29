@@ -24,69 +24,117 @@ import canvas from "canvas";
 //black and whitifying:
 //  - go to image --> mode --> indexed mode --> use black and white 1 bit pallette
 
-let state = "Minnesota";
-let year = "2020";
+// let state = "Virginia";
+let years = [
+  // "1876",
+  // "1932",
+  // "1936",
+  // "1940",
+  // "1944",
+  // "1948",
+  // "1952",
+  // "1956",
+  // "1960",
+  // "1964",
+  // "1968",
+  // "1972",
+  // "1976",
+  // "1980",
+  // "1984",
+  // "1988",
+  // "1992",
+  // "1996",
+  "1994",
+  // "2000",
+  // "2004",
+  // "2008",
+  // "2012",
+  // "2016",
+  // "2020"
+];
 
-csvToArray(`../db/Presidential Races/${year}/${state}.csv`).then((totals) => {
-  convertNumbersInArray(totals);
-  // console.log(totals);
-  canvas
-    .loadImage(`./BlankMapsBW/${state.replace(" ", "")}County.png`)
-    .then((img) => {
-      csvToArray("./data/BlankMapSizes.csv").then((sizes) => {
-        stripQuotesInArray(sizes);
-        convertNumbersInArray(sizes);
-        let stateIndex;
-        for (let i = 0; i < sizes.length; ++i) {
-          if (sizes[i][0] === state) {
-            stateIndex = i;
-          }
-        }
+const mode = "";
 
-        const can = canvas.createCanvas(
-          sizes[stateIndex][1],
-          sizes[stateIndex][2]
-        );
-        const con = can.getContext("2d");
-        con.fillStyle = "white";
-        con.fillRect(0, 0, sizes[stateIndex][1], sizes[stateIndex][2]);
-        con.drawImage(img, 0, 0, sizes[stateIndex][1], sizes[stateIndex][2]);
+const states = [
+  // "Alabama",
+  // // "Alaska",
+  // "Arizona",
+  // "Arkansas",
+  // "California",
+  // // "Colorado",
+  // "Connecticut",
+  // "Delaware",
+  // // "District Of Columbia",
+  // "Florida",
+  // "Georgia",
+  // "Hawaii",
+  // "Idaho",
+  // "Illinois",
+  // "Indiana",
+  // "Iowa",
+  // "Kansas",
+  // "Kentucky",
+  // "Louisiana",
+  // "Maine",
+  // "Maryland",
+  // "Massachusetts",
+  // "Michigan",
+  // "Minnesota",
+  // // "Mississippi",
+  // "Missouri",
+  // "Montana",
+  // "Nebraska",
+  // "Nevada",
+  // "New Hampshire",
+  // "New Jersey",
+  // "New Mexico",
+  // "New York",
+  // "North Carolina",
+  // "North Dakota",
+  // "Ohio",
+  // "Oklahoma",
+  // "Oregon",
+  // "Pennsylvania",
+  "Rhode Island",
+  // "South Carolina",
+  // "South Dakota",
+  // "Tennessee",
+  // "Texas",
+  // "Utah",
+  // "Vermont",
+  // "Virginia",
+  // "Washington",
+  // "West Virginia",
+  // "Wisconsin",
+  // "Wyoming",
+];
 
-        csvToArray(`./CountyCoordsbyState/${state}.csv`).then((seedPoints) => {
-          convertNumbersInArray(seedPoints);
-          con.fillStyle = "red";
-          for (let i = 0; i < seedPoints.length; ++i) {
-            let countyRow;
-            for (let j = 0; j < totals.length; ++j) {
-              // try {
-              //   seedPoints[j][0].toLowerCase();
-              // }
-              // catch {
-              //   console.log(j, totals[j], totals[j][0]);
-              // }
-              if (
-                totals[j][0]/*.toLowerCase()*/ === seedPoints[i][0]/*.toLowerCase()*/
-              ) {
-                // console.log("match found");cls
-                colorRegion(
-                  seedPoints[i][1],
-                  seedPoints[i][2],
-                  sizes[stateIndex][1],
-                  sizes[stateIndex][2],
-                  con,
-                  getCorrectColor(totals[j][2], totals[j][3])
-                );
-                // console.log(getCorrectColor(totals[j][2], totals[j][3]));
+for (let year of years) {
+  for (let state of states) {
+    csvToArray(`../db/${mode}/${year}/${state}.csv`).then(
+      (totals) => {
+        convertNumbersInArray(totals);
+        // console.log(totals);
+        canvas
+          .loadImage(`./BlankMapsBW/${state.replace(" ", "")}County.png`)
+          .then((img) => {
+            csvToArray("./data/BlankMapSizes.csv").then((sizes) => {
+              stripQuotesInArray(sizes);
+              convertNumbersInArray(sizes);
+              let stateIndex;
+              for (let i = 0; i < sizes.length; ++i) {
+                if (sizes[i][0] === state) {
+                  stateIndex = i;
+                }
               }
-            }
 
-            // con.fillRect(seedPoints[i][1] - 1, seedPoints[i][2] - 1, 2, 2);
-          }
-          canvas
-            .loadImage(
-              `./CountyMapsOutline/${state.replace(" ", "")}CountyOutline.png`
-            )
-            .then((img) => {
+              const can = canvas.createCanvas(
+                sizes[stateIndex][1],
+                sizes[stateIndex][2]
+              );
+              const con = can.getContext("2d");
+              con.fillStyle = "white";
+              con.fillRect(0, 0, sizes[stateIndex][1], sizes[stateIndex][2]);
               con.drawImage(
                 img,
                 0,
@@ -94,15 +142,67 @@ csvToArray(`../db/Presidential Races/${year}/${state}.csv`).then((totals) => {
                 sizes[stateIndex][1],
                 sizes[stateIndex][2]
               );
-              fs.writeFileSync(
-                `./ColoredMaps/Presidential Races/${year}/${state}.png`,
-                can.toBuffer("image/png")
+
+              csvToArray(`./CountyCoordsbyState/${state}.csv`).then(
+                (seedPoints) => {
+                  convertNumbersInArray(seedPoints);
+                  con.fillStyle = "red";
+                  for (let i = 0; i < seedPoints.length; ++i) {
+                    let countyRow;
+                    for (let j = 0; j < totals.length; ++j) {
+                      // try {
+                      //   seedPoints[j][0].toLowerCase();
+                      // }
+                      // catch {
+                      //   console.log(j, totals[j], totals[j][0]);
+                      // }
+                      if (
+                        totals[j][0] /*.toLowerCase()*/ ===
+                        seedPoints[i][0] /*.toLowerCase()*/
+                      ) {
+                        // console.log("match found");cls
+                        colorRegion(
+                          seedPoints[i][1],
+                          seedPoints[i][2],
+                          sizes[stateIndex][1],
+                          sizes[stateIndex][2],
+                          con,
+                          getCorrectColor(totals[j][2], totals[j][3])
+                        );
+                        // console.log(getCorrectColor(totals[j][2], totals[j][3]));
+                      }
+                    }
+
+                    // con.fillRect(seedPoints[i][1] - 1, seedPoints[i][2] - 1, 2, 2);
+                  }
+                  canvas
+                    .loadImage(
+                      `./CountyMapsOutline/${state.replace(
+                        " ",
+                        ""
+                      )}CountyOutline.png`
+                    )
+                    .then((img) => {
+                      con.drawImage(
+                        img,
+                        0,
+                        0,
+                        sizes[stateIndex][1],
+                        sizes[stateIndex][2]
+                      );
+                      fs.writeFileSync(
+                        `./ColoredMaps/${mode}/${year}/${state}.png`,
+                        can.toBuffer("image/png")
+                      );
+                    });
+                }
               );
             });
-        });
-      });
-    });
-});
+          });
+      }
+    );
+  }
+}
 
 function colorRegion(seedPointX, seedPointY, width, height, context, color) {
   const isDrawn = [];
@@ -183,7 +283,7 @@ function getCorrectColor(party, percentage) {
     } else {
       return "rgb(255, 255, 0)";
     }
-  } else if (party === "Democrat") {
+  } else if (party === "Democrat" || party === "Democratic") {
     if (90 < percentage) {
       return "rgb(0, 43, 132)";
     } else if (80 < percentage && percentage <= 90) {
@@ -201,6 +301,37 @@ function getCorrectColor(party, percentage) {
     } else {
       return "rgb(255, 255, 0)";
     }
+  } else if (party === "Dixiecrat") {
+    if (90 < percentage) {
+      return "rgb(170, 68, 0)";
+    } else if (80 < percentage && percentage <= 90) {
+      return "rgb(212, 85, 0)";
+    } else if (70 < percentage && percentage <= 80) {
+      return "rgb(255, 102, 0)";
+    } else if (60 < percentage && percentage <= 70) {
+      return "rgb(255, 127, 42)";
+    } else if (50 < percentage && percentage <= 60) {
+      return "rgb(255, 153, 85)";
+    } else if (40 < percentage && percentage <= 50) {
+      return "rgb(255, 179, 128)";
+    } else if (30 < percentage && percentage <= 40) {
+      return "rgb(255, 204, 170)";
+    } else {
+      return "rgb(255, 255, 0)";
+    }
+  } else if (party === "Independent") {
+    if (70 < percentage && percentage <= 80) {
+      return "rgb(115, 115, 115)";
+    } else if (60 < percentage && percentage <= 70) {
+      return "rgb(150, 150, 150)";
+    } else if (50 < percentage && percentage <= 60) {
+      return "rgb(189, 189, 189)";
+    } else if (40 < percentage && percentage <= 50) {
+      return "rgb(217, 217, 217)";
+    } else if (30 < percentage && percentage <= 40) {
+      return "rgb(230, 230, 230)";
+    }
+
   }
   return "rgb(0, 0, 0)";
 }

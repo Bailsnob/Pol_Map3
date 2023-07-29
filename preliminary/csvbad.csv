@@ -1,64 +1,614 @@
-Acadia,4504,91.08,441,8.92,,,4063,82.16,4945
-Allen,2207,87.20,324,12.80,,,1883,74.40,2531
-Ascension,2359,87.05,350,12.92,1,0.04,2009,74.13,2710
-Assumption,712,39.06,1111,60.94,,,-399,-21.89,1823
-Avoyelles,4408,90.70,452,9.30,,,3956,81.40,4860
-Beauregard,2181,79.89,549,20.11,,,1632,59.78,2730
-Bienville,2593,92.38,213,7.59,1,0.04,2380,84.79,2807
-Bossier,1975,91.01,193,8.89,2,0.09,1782,82.12,2170
-Caddo,12156,87.72,1697,12.25,4,0.03,10459,75.48,13857
-Calcasieu,6259,85.63,1037,14.19,13,0.18,5222,71.45,7309
-Caldwell,1371,85.37,235,14.63,,,1136,70.73,1606
-Cameron,1067,98.52,16,1.48,,,1051,97.05,1083
-Catahoula,1363,93.29,98,6.71,,,1265,86.58,1461
-Claiborne,2563,94.54,146,5.39,2,0.07,2417,89.16,2711
-Concordia,1152,95.13,58,4.79,1,0.08,1094,90.34,1211
-De Soto,2337,96.17,93,3.83,,,2244,92.35,2430
-East Baton Rouge,9911,90.26,1069,9.74,,,8842,80.53,10980
-East Carroll,811,89.51,95,10.49,,,716,79.03,906
-East Feliciana,1057,91.20,102,8.80,,,955,82.40,1159
-Evangeline,3484,91.32,331,8.68,,,3153,82.65,3815
-Franklin,2948,92.50,231,7.25,8,0.25,2717,85.25,3187
-Grant,1847,78.33,511,21.67,,,1336,56.66,2358
-Iberia,2595,67.77,1234,32.23,,,1361,35.54,3829
-Iberville,1953,88.13,263,11.87,,,1690,76.26,2216
-Jackson,1807,91.45,169,8.55,,,1638,82.89,1976
-Jefferson,9056,92.72,705,7.22,6,0.06,8351,85.50,9767
-Jefferson Davis,2567,80.85,608,19.15,,,1959,61.70,3175
-Lafayette,4570,93.72,306,6.28,,,4264,87.45,4876
-Lafourche,2195,57.36,1630,42.59,2,0.05,565,14.76,3827
-LaSalle,1643,86.52,256,13.48,,,1387,73.04,1899
-Lincoln,2154,91.43,201,8.53,1,0.04,1953,82.89,2356
-Livingston,2414,82.96,496,17.04,,,1918,65.91,2910
-Madison,1085,93.86,71,6.14,,,1014,87.72,1156
-Morehouse,2514,93.53,172,6.40,2,0.07,2342,87.13,2688
-Natchitoches,3476,87.38,502,12.62,,,2974,74.76,3978
-Orleans,108012,91.32,10254,8.67,16,0.01,97758,82.65,118282
-Ouachita,7635,87.28,1113,12.72,,,6522,74.55,8748
-Plaquemines,2209,95.92,94,4.08,,,2115,91.84,2303
-Pointe Coupee,1419,92.44,116,7.56,,,1303,84.89,1535
-Rapides,8017,86.45,1257,13.55,,,6760,72.89,9274
-Red River,1641,92.55,132,7.45,,,1509,85.11,1773
-Richland,2425,93.48,165,6.36,4,0.15,2260,87.12,2594
-Sabine,2447,85.41,417,14.55,1,0.03,2030,70.86,2865
-Saint Bernard,2269,98.91,25,1.09,,,2244,97.82,2294
-Saint Charles,1503,94.00,96,6.00,,,1407,87.99,1599
-Saint Helena,1199,92.16,102,7.84,,,1097,84.32,1301
-Saint James,1575,85.88,259,14.12,,,1316,71.76,1834
-Saint John the Baptist,1742,86.93,262,13.07,,,1480,73.85,2004
-Saint Landry,5639,92.75,441,7.25,,,5198,85.49,6080
-Saint Martin,2638,96.35,100,3.65,,,2538,92.70,2738
-Saint Mary,1942,79.95,487,20.05,,,1455,59.90,2429
-Saint Tammany,3477,85.41,594,14.59,,,2883,70.82,4071
-Tangipahoa,4624,77.07,1374,22.90,2,0.03,3250,54.17,6000
-Tensas,812,97.25,23,2.75,,,789,94.49,835
-Terrebonne,1894,78.26,526,21.74,,,1368,56.53,2420
-Union,1778,86.73,272,13.27,,,1506,73.46,2050
-Vermilion,4141,89.02,496,10.66,15,0.32,3645,78.35,4652
-Vernon,2831,75.21,928,24.65,5,0.13,1903,50.56,3764
-Washington,5667,94.18,350,5.82,,,5317,88.37,6017
-Webster,2799,90.12,301,9.69,6,0.19,2498,80.42,3106
-West Baton Rouge,868,91.46,80,8.43,1,0.11,788,83.03,949
-West Carroll,1440,86.12,232,13.88,,,1208,72.25,1672
-West Feliciana,564,88.13,76,11.88,,,488,76.25,640
-Winn,2393,90.40,254,9.60,,,2139,80.81,2647
+Adair	Boren	80.8%	
+ 
+Jones	19.2%	
+ 
+0.0%	
+ 
+
+
+Alfalfa	Boren	84.6%	
+ 
+Jones	15.4%	
+ 
+0.0%	
+ 
+
+
+Atoka	Boren	90.2%	
+ 
+Jones	9.8%	
+ 
+0.0%	
+ 
+
+
+Beaver	Boren	66.1%	
+ 
+Jones	33.9%	
+ 
+0.0%	
+ 
+
+
+Beckham	Boren	87.6%	
+ 
+Jones	12.4%	
+ 
+0.0%	
+ 
+
+
+Blaine	Boren	81.4%	
+ 
+Jones	18.6%	
+ 
+0.0%	
+ 
+
+
+Bryan	Boren	88.1%	
+ 
+Jones	11.9%	
+ 
+0.0%	
+ 
+
+
+Caddo	Boren	87.8%	
+ 
+Jones	12.2%	
+ 
+0.0%	
+ 
+
+
+Canadian	Boren	79.3%	
+ 
+Jones	20.7%	
+ 
+0.0%	
+ 
+
+
+Carter	Boren	86.1%	
+ 
+Jones	13.9%	
+ 
+0.0%	
+ 
+
+
+Cherokee	Boren	84.2%	
+ 
+Jones	15.8%	
+ 
+0.0%	
+ 
+
+
+Choctaw	Boren	90.1%	
+ 
+Jones	9.9%	
+ 
+0.0%	
+ 
+
+
+Cimarron	Boren	71.1%	
+ 
+Jones	28.9%	
+ 
+0.0%	
+ 
+
+
+Cleveland	Boren	80.4%	
+ 
+Jones	19.6%	
+ 
+0.0%	
+ 
+
+
+Coal	Boren	90.9%	
+ 
+Jones	9.1%	
+ 
+0.0%	
+ 
+
+
+Comanche	Boren	78.0%	
+ 
+Jones	22.0%	
+ 
+0.0%	
+ 
+
+
+Cotton	Boren	87.6%	
+ 
+Jones	12.4%	
+ 
+0.0%	
+ 
+
+
+Craig	Boren	86.7%	
+ 
+Jones	13.3%	
+ 
+0.0%	
+ 
+
+
+Creek	Boren	83.7%	
+ 
+Jones	16.3%	
+ 
+0.0%	
+ 
+
+
+Custer	Boren	86.9%	
+ 
+Jones	13.1%	
+ 
+0.0%	
+ 
+
+
+Delaware	Boren	78.7%	
+ 
+Jones	21.3%	
+ 
+0.0%	
+ 
+
+
+Dewey	Boren	87.3%	
+ 
+Jones	12.7%	
+ 
+0.0%	
+ 
+
+
+Ellis	Boren	80.9%	
+ 
+Jones	19.1%	
+ 
+0.0%	
+ 
+
+
+Garfield	Boren	78.5%	
+ 
+Jones	21.5%	
+ 
+0.0%	
+ 
+
+
+Garvin	Boren	88.7%	
+ 
+Jones	11.3%	
+ 
+0.0%	
+ 
+
+
+Grady	Boren	84.3%	
+ 
+Jones	15.7%	
+ 
+0.0%	
+ 
+
+
+Grant	Boren	81.8%	
+ 
+Jones	18.2%	
+ 
+0.0%	
+ 
+
+
+Greer	Boren	88.5%	
+ 
+Jones	11.5%	
+ 
+0.0%	
+ 
+
+
+Harmon	Boren	93.7%	
+ 
+Jones	6.3%	
+ 
+0.0%	
+ 
+
+
+Harper	Boren	76.1%	
+ 
+Jones	23.9%	
+ 
+0.0%	
+ 
+
+
+Haskell	Boren	89.0%	
+ 
+Jones	11.0%	
+ 
+0.0%	
+ 
+
+
+Hughes	Boren	91.4%	
+ 
+Jones	8.6%	
+ 
+0.0%	
+ 
+
+
+Jackson	Boren	86.3%	
+ 
+Jones	13.7%	
+ 
+0.0%	
+ 
+
+
+Jefferson	Boren	88.0%	
+ 
+Jones	12.0%	
+ 
+0.0%	
+ 
+
+
+Johnston	Boren	90.2%	
+ 
+Jones	9.8%	
+ 
+0.0%	
+ 
+
+
+Kay	Boren	77.8%	
+ 
+Jones	22.2%	
+ 
+0.0%	
+ 
+
+
+Kingfisher	Boren	83.7%	
+ 
+Jones	16.3%	
+ 
+0.0%	
+ 
+
+
+Kiowa	Boren	89.7%	
+ 
+Jones	10.3%	
+ 
+0.0%	
+ 
+
+
+Latimer	Boren	89.3%	
+ 
+Jones	10.7%	
+ 
+0.0%	
+ 
+
+
+Le Flore	Boren	87.5%	
+ 
+Jones	12.5%	
+ 
+0.0%	
+ 
+
+
+Lincoln	Boren	83.9%	
+ 
+Jones	16.1%	
+ 
+0.0%	
+ 
+
+
+Logan	Boren	82.0%	
+ 
+Jones	18.0%	
+ 
+0.0%	
+ 
+
+
+Love	Boren	89.4%	
+ 
+Jones	10.6%	
+ 
+0.0%	
+ 
+
+
+McClain	Boren	84.6%	
+ 
+Jones	15.4%	
+ 
+0.0%	
+ 
+
+
+McCurtain	Boren	86.8%	
+ 
+Jones	13.2%	
+ 
+0.0%	
+ 
+
+
+McIntosh	Boren	88.4%	
+ 
+Jones	11.6%	
+ 
+0.0%	
+ 
+
+
+Major	Boren	78.5%	
+ 
+Jones	21.5%	
+ 
+0.0%	
+ 
+
+
+Marshall	Boren	89.9%	
+ 
+Jones	10.1%	
+ 
+0.0%	
+ 
+
+
+Mayes	Boren	84.1%	
+ 
+Jones	15.9%	
+ 
+0.0%	
+ 
+
+
+Murray	Boren	90.6%	
+ 
+Jones	9.4%	
+ 
+0.0%	
+ 
+
+
+Muskogee	Boren	85.8%	
+ 
+Jones	14.2%	
+ 
+0.0%	
+ 
+
+
+Noble	Boren	83.7%	
+ 
+Jones	16.3%	
+ 
+0.0%	
+ 
+
+
+Nowata	Boren	81.8%	
+ 
+Jones	18.2%	
+ 
+0.0%	
+ 
+
+
+Okfuskee	Boren	88.1%	
+ 
+Jones	11.9%	
+ 
+0.0%	
+ 
+
+
+Oklahoma	Boren	81.4%	
+ 
+Jones	18.6%	
+ 
+0.0%	
+ 
+
+
+Okmulgee	Boren	88.1%	
+ 
+Jones	11.9%	
+ 
+0.0%	
+ 
+
+
+Osage	Boren	86.2%	
+ 
+Jones	13.8%	
+ 
+0.0%	
+ 
+
+
+Ottawa	Boren	78.6%	
+ 
+Jones	21.4%	
+ 
+0.0%	
+ 
+
+
+Pawnee	Boren	83.0%	
+ 
+Jones	17.0%	
+ 
+0.0%	
+ 
+
+
+Payne	Boren	83.0%	
+ 
+Jones	17.0%	
+ 
+0.0%	
+ 
+
+
+Pittsburg	Boren	87.4%	
+ 
+Jones	12.6%	
+ 
+0.0%	
+ 
+
+
+Pontotoc	Boren	90.5%	
+ 
+Jones	9.5%	
+ 
+0.0%	
+ 
+
+
+Pottawatomie	Boren	85.4%	
+ 
+Jones	14.6%	
+ 
+0.0%	
+ 
+
+
+Pushmataha	Boren	90.7%	
+ 
+Jones	9.3%	
+ 
+0.0%	
+ 
+
+
+Roger Mills	Boren	86.3%	
+ 
+Jones	13.7%	
+ 
+0.0%	
+ 
+
+
+Rogers	Boren	83.2%	
+ 
+Jones	16.8%	
+ 
+0.0%	
+ 
+
+
+Seminole	Boren	89.1%	
+ 
+Jones	10.9%	
+ 
+0.0%	
+ 
+
+
+Sequoyah	Boren	86.1%	
+ 
+Jones	13.9%	
+ 
+0.0%	
+ 
+
+
+Stephens	Boren	85.7%	
+ 
+Jones	14.3%	
+ 
+0.0%	
+ 
+
+
+Texas	Boren	67.0%	
+ 
+Jones	33.0%	
+ 
+0.0%	
+ 
+
+
+Tillman	Boren	88.4%	
+ 
+Jones	11.6%	
+ 
+0.0%	
+ 
+
+
+Tulsa	Boren	82.7%	
+ 
+Jones	17.3%	
+ 
+0.0%	
+ 
+
+
+Wagoner	Boren	82.4%	
+ 
+Jones	17.6%	
+ 
+0.0%	
+ 
+
+
+Washington	Boren	76.9%	
+ 
+Jones	23.1%	
+ 
+0.0%	
+ 
+
+
+Washita	Boren	87.6%	
+ 
+Jones	12.4%	
+ 
+0.0%	
+ 
+
+
+Woods	Boren	84.6%	
+ 
+Jones	15.4%	
+ 
+0.0%	
+ 
+
+
+Woodward	Boren	83.1%	
+ 
+Jones	16.9%	
+ 
+0.0%	
+ 
