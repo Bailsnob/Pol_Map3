@@ -7,9 +7,10 @@ import csvUtilities, {
   stripQuotesInArray,
 } from "./utilities/csv.mjs";
 
-let year = "1994";
-let state = "Massachusetts";
-let start = 2;
+let year = "2022";
+let state = "Tennessee";
+let mode = "Gubernatorial";
+let start = 1;
 
 csvToArray("csvbad.csv").then((totals) => {
   stripQuotesInArray(totals);
@@ -17,16 +18,16 @@ csvToArray("csvbad.csv").then((totals) => {
   for (let i = 0; i < totals.length; ++i) {
     let newRow = [totals[i][0]];
     // console.log(totals[i][1], totals[i][3], totals[i][5]);
-    if (Math.max(totals[i][start], totals[i][start + 2]/*, totals[i][start + 4]*/) === totals[i][start + 2]) {
-      newRow.push("Daniel H Chamberlain");
+    if (Math.max(totals[i][start], totals[i][start + 2]/*, totals[i][start + 4]*/) === totals[i][start]) {
+      newRow.push("Bill Lee");
       newRow.push("Republican");
-      newRow.push(totals[i][start + 2]);
-    } else if (
-      Math.max(totals[i][start], totals[i][start + 2]/*, totals[i][start + 4]*/) === totals[i][start]
-    ) {
-      newRow.push("Wade Hampton III");
-      newRow.push("Democrat");
       newRow.push(totals[i][start]);
+    } else if (
+      Math.max(totals[i][start], totals[i][start + 2]/*, totals[i][start + 4]*/) === totals[i][start + 2]
+    ) {
+      newRow.push("Jason Martin");
+      newRow.push("Democrat");
+      newRow.push(totals[i][start + 2]);
     } else {
       newRow.push("James Strom Thurmond");
       newRow.push("Dixiecrat");
@@ -34,6 +35,6 @@ csvToArray("csvbad.csv").then((totals) => {
     }
     totals[i] = newRow;
   }
-  console.log(totals);
-  syncArrayToCsv(totals, `../db/Gubernatorial/${year}/${state}.csv`);
+  // console.log(totals);
+  syncArrayToCsv(totals, `../db/${mode}/${year}/${state}.csv`);
 });

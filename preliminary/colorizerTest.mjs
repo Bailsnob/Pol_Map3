@@ -44,16 +44,17 @@ let years = [
   // "1988",
   // "1992",
   // "1996",
-  "1994",
+  // "1994",
   // "2000",
   // "2004",
   // "2008",
   // "2012",
   // "2016",
-  // "2020"
+  // "2020",
+  "2022"
 ];
 
-const mode = "";
+const mode = "Gubernatorial";
 
 const states = [
   // "Alabama",
@@ -95,10 +96,10 @@ const states = [
   // "Oklahoma",
   // "Oregon",
   // "Pennsylvania",
-  "Rhode Island",
+  // "Rhode Island",
   // "South Carolina",
   // "South Dakota",
-  // "Tennessee",
+  "Tennessee",
   // "Texas",
   // "Utah",
   // "Vermont",
