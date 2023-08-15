@@ -26,7 +26,9 @@ import canvas from "canvas";
 
 // let state = "Virginia";
 let years = [
+  // "1856",
   // "1876",
+  "1928",
   // "1932",
   // "1936",
   // "1940",
@@ -42,19 +44,28 @@ let years = [
   // "1980",
   // "1984",
   // "1988",
+  // "1990",
   // "1992",
-  // "1996",
   // "1994",
+  // "1996",
   // "2000",
+  // "2002",
   // "2004",
   // "2008",
   // "2012",
+  // "2013",
+  // "2014",
+  // "2015",
   // "2016",
+  // "2017",
+  // "2018",
+  // "2019",
   // "2020",
-  "2022"
+  // "2021",
+  // "2022"
 ];
 
-const mode = "Gubernatorial";
+const mode = "Presidential";
 
 const states = [
   // "Alabama",
@@ -63,25 +74,25 @@ const states = [
   // "Arkansas",
   // "California",
   // // "Colorado",
-  // "Connecticut",
+  "Connecticut",
   // "Delaware",
   // // "District Of Columbia",
-  // "Florida",
+  "Florida",
   // "Georgia",
-  // "Hawaii",
+  // // "Hawaii",
   // "Idaho",
   // "Illinois",
   // "Indiana",
   // "Iowa",
   // "Kansas",
   // "Kentucky",
-  // "Louisiana",
+  "Louisiana",
   // "Maine",
   // "Maryland",
   // "Massachusetts",
   // "Michigan",
   // "Minnesota",
-  // // "Mississippi",
+  // "Mississippi",
   // "Missouri",
   // "Montana",
   // "Nebraska",
@@ -99,11 +110,11 @@ const states = [
   // "Rhode Island",
   // "South Carolina",
   // "South Dakota",
-  // "Tennessee",  
+  // "Tennessee",
   // "Texas",
   // "Utah",
   // "Vermont",
-  // "Virginia",
+  // // "Virginia",
   // "Washington",
   // "West Virginia",
   // "Wisconsin",
@@ -332,7 +343,20 @@ function getCorrectColor(party, percentage) {
     } else if (30 < percentage && percentage <= 40) {
       return "rgb(230, 230, 230)";
     }
-
+  } else if (party === "Libertarian") {
+    if (90 < percentage) {
+      return "rgb(165, 129, 0)";
+    } else if (80 < percentage && percentage <= 90) {
+      return "rgb(185, 138, 53)";
+    } else if (70 < percentage && percentage <= 80) {
+      return "rgb(206, 155, 30)";
+    } else if (60 < percentage && percentage <= 70) {
+      return "rgb(222, 176, 42)";
+    } else if (50 < percentage && percentage <= 60) {
+      return "rgb(241, 201, 42)";
+    } else {
+      return "rgb(255, 255, 0)";
+    }
   }
   return "rgb(0, 0, 0)";
 }
