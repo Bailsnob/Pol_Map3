@@ -1,89 +1,88 @@
-#, Calvin Coolidge, Republican, 0
-Adams, Calvin Coolidge, Republican, 4315
-Allen, Calvin Coolidge, Republican, 15711
-Ashland, Calvin Coolidge, Republican, 5777
-Ashtabula, Robert M La Follette, Progressive, NaN
-Athens, Robert M La Follette, Progressive, NaN
-Auglaize, Calvin Coolidge, Republican, 5507
-Belmont, Calvin Coolidge, Republican, 16378
-Brown, John W Davis, Democrat, 4120
-Butler, Calvin Coolidge, Republican, 19349
-Carroll, Calvin Coolidge, Republican, 4369
-Champaign, Calvin Coolidge, Republican, 6181
-Clark, Calvin Coolidge, Republican, 20340
-Clermont, Calvin Coolidge, Republican, 6867
-Clinton, Calvin Coolidge, Republican, 5954
-Columbiana, Calvin Coolidge, Republican, 20483
-Coshocton, Calvin Coolidge, Republican, 5837
-Crawford, Calvin Coolidge, Republican, 5896
-Cuyahoga, Robert M La Follette, Progressive, NaN
-Darke, Calvin Coolidge, Republican, 9166
-Defiance, Calvin Coolidge, Republican, 4841
-Delaware, Calvin Coolidge, Republican, 6731
-Erie, Robert M La Follette, Progressive, NaN
-Fairfield, Calvin Coolidge, Republican, 8281
-Fayette, Calvin Coolidge, Republican, 4542
-Franklin, Calvin Coolidge, Republican, 61891
-Fulton, Calvin Coolidge, Republican, 4951
-Gallia, Calvin Coolidge, Republican, 4325
-Geauga, Robert M La Follette, Progressive, NaN
-Greene, Calvin Coolidge, Republican, 8410
-Guernsey, Calvin Coolidge, Republican, 8997
-Hamilton, Robert M La Follette, Progressive, NaN
-Hancock, Calvin Coolidge, Republican, 9167
-Hardin, Calvin Coolidge, Republican, 7112
-Harrison, Calvin Coolidge, Republican, 4904
-Henry, Calvin Coolidge, Republican, 3855
-Highland, Calvin Coolidge, Republican, 6845
-Hocking, Calvin Coolidge, Republican, 4086
-Holmes, John W Davis, Democrat, 2539
-Huron, Calvin Coolidge, Republican, 8340
-Jackson, Calvin Coolidge, Republican, 5977
-Jefferson, Calvin Coolidge, Republican, 14929
-Knox, Calvin Coolidge, Republican, 7519
-Lake, Robert M La Follette, Progressive, NaN
-Lawrence, Calvin Coolidge, Republican, 6798
-Licking, Calvin Coolidge, Republican, 13914
-Logan, Calvin Coolidge, Republican, 7186
-Lorain, Robert M La Follette, Progressive, NaN
-Lucas, Robert M La Follette, Progressive, NaN
-Madison, Calvin Coolidge, Republican, 4829
-Mahoning, Calvin Coolidge, Republican, 37647
-Marion, Calvin Coolidge, Republican, 9161
-Medina, Calvin Coolidge, Republican, 6756
-Meigs, Calvin Coolidge, Republican, 4864
-Mercer, John W Davis, Democrat, 5135
-Miami, Calvin Coolidge, Republican, 11851
-Monroe, John W Davis, Democrat, 3742
-Montgomery, Calvin Coolidge, Republican, 50845
-Morgan, Calvin Coolidge, Republican, 3553
-Morrow, Calvin Coolidge, Republican, 3790
-Muskingum, Calvin Coolidge, Republican, 15571
-Noble, Calvin Coolidge, Republican, 4284
-Ottawa, Calvin Coolidge, Republican, 4137
-Paulding, Calvin Coolidge, Republican, 3648
-Perry, Calvin Coolidge, Republican, 7592
-Pickaway, John W Davis, Democrat, 4539
-Pike, John W Davis, Democrat, 3185
-Portage, Calvin Coolidge, Republican, 8583
-Preble, Calvin Coolidge, Republican, 5676
-Putnam, John W Davis, Democrat, 4795
-Richland, Calvin Coolidge, Republican, 12013
-Ross, Calvin Coolidge, Republican, 8431
-Sandusky, Calvin Coolidge, Republican, 9381
-Scioto, Calvin Coolidge, Republican, 12189
-Seneca, Calvin Coolidge, Republican, 9641
-Shelby, John W Davis, Democrat, 4840
-Stark, Calvin Coolidge, Republican, 40858
-Summit, Calvin Coolidge, Republican, 53774
-Trumbull, Calvin Coolidge, Republican, 22341
-Tuscarawas, Calvin Coolidge, Republican, 13573
-Union, Calvin Coolidge, Republican, 5256
-Van Wert, Calvin Coolidge, Republican, 6206
-Vinton, Calvin Coolidge, Republican, 2244
-Warren, Calvin Coolidge, Republican, 6729
-Washington, Calvin Coolidge, Republican, 8704
-Wayne, Calvin Coolidge, Republican, 8928
-Williams, Calvin Coolidge, Republican, 5802
-Wood, Calvin Coolidge, Republican, 10665
-Wyandot, Calvin Coolidge, Republican, 3973
+Adams, Calvin Coolidge, Republican, 52.46
+Allen, Calvin Coolidge, Republican, 61.76
+Ashland, Calvin Coolidge, Republican, 52.68
+Ashtabula, Calvin Coolidge, Republican, 69.21
+Athens, Calvin Coolidge, Republican, 58.19
+Auglaize, Calvin Coolidge, Republican, 51.86
+Belmont, Calvin Coolidge, Republican, 54.53
+Brown, John W Davis, Democrat, 49.05
+Butler, Calvin Coolidge, Republican, 56.25
+Carroll, Calvin Coolidge, Republican, 70.78
+Champaign, Calvin Coolidge, Republican, 60.33
+Clark, Calvin Coolidge, Republican, 66.44
+Clermont, Calvin Coolidge, Republican, 55.18
+Clinton, Calvin Coolidge, Republican, 67.08
+Columbiana, Calvin Coolidge, Republican, 69.97
+Coshocton, Calvin Coolidge, Republican, 49.77
+Crawford, Calvin Coolidge, Republican, 40.83
+Cuyahoga, Calvin Coolidge, Republican, 49.29
+Darke, Calvin Coolidge, Republican, 52.92
+Defiance, Calvin Coolidge, Republican, 52.55
+Delaware, Calvin Coolidge, Republican, 60.41
+Erie, Calvin Coolidge, Republican, 54.34
+Fairfield, Calvin Coolidge, Republican, 53.8
+Fayette, Calvin Coolidge, Republican, 60.27
+Franklin, Calvin Coolidge, Republican, 57.68
+Fulton, Calvin Coolidge, Republican, 69.56
+Gallia, Calvin Coolidge, Republican, 61.21
+Geauga, Calvin Coolidge, Republican, 72.39
+Greene, Calvin Coolidge, Republican, 72.98
+Guernsey, Calvin Coolidge, Republican, 59.56
+Hamilton, Calvin Coolidge, Republican, 60.7
+Hancock, Calvin Coolidge, Republican, 57.03
+Hardin, Calvin Coolidge, Republican, 53.66
+Harrison, Calvin Coolidge, Republican, 65.97
+Henry, Calvin Coolidge, Republican, 45.51
+Highland, Calvin Coolidge, Republican, 57.16
+Hocking, Calvin Coolidge, Republican, 50.46
+Holmes, John W Davis, Democrat, 53.25
+Huron, Calvin Coolidge, Republican, 62.12
+Jackson, Calvin Coolidge, Republican, 61.45
+Jefferson, Calvin Coolidge, Republican, 67.97
+Knox, Calvin Coolidge, Republican, 57.43
+Lake, Calvin Coolidge, Republican, 70.71
+Lawrence, Calvin Coolidge, Republican, 63.96
+Licking, Calvin Coolidge, Republican, 58.49
+Logan, Calvin Coolidge, Republican, 61.03
+Lorain, Calvin Coolidge, Republican, 61.43
+Lucas, Calvin Coolidge, Republican, 55.39
+Madison, Calvin Coolidge, Republican, 61.97
+Mahoning, Calvin Coolidge, Republican, 68.12
+Marion, Calvin Coolidge, Republican, 54.2
+Medina, Calvin Coolidge, Republican, 67.76
+Meigs, Calvin Coolidge, Republican, 57.28
+Mercer, John W Davis, Democrat, 49.21
+Miami, Calvin Coolidge, Republican, 62.7
+Monroe, John W Davis, Democrat, 56.79
+Montgomery, Calvin Coolidge, Republican, 62.61
+Morgan, Calvin Coolidge, Republican, 60.94
+Morrow, Calvin Coolidge, Republican, 57.39
+Muskingum, Calvin Coolidge, Republican, 65.71
+Noble, Calvin Coolidge, Republican, 60.78
+Ottawa, Calvin Coolidge, Republican, 51.77
+Paulding, Calvin Coolidge, Republican, 57.79
+Perry, Calvin Coolidge, Republican, 58.11
+Pickaway, John W Davis, Democrat, 50.38
+Pike, John W Davis, Democrat, 54.39
+Portage, Calvin Coolidge, Republican, 62.43
+Preble, Calvin Coolidge, Republican, 56.75
+Putnam, John W Davis, Democrat, 45.82
+Richland, Calvin Coolidge, Republican, 55.5
+Ross, Calvin Coolidge, Republican, 53.86
+Sandusky, Calvin Coolidge, Republican, 60.88
+Scioto, Calvin Coolidge, Republican, 62.83
+Seneca, Calvin Coolidge, Republican, 53.29
+Shelby, John W Davis, Democrat, 49.31
+Stark, Calvin Coolidge, Republican, 64.28
+Summit, Calvin Coolidge, Republican, 65.28
+Trumbull, Calvin Coolidge, Republican, 74.35
+Tuscarawas, Calvin Coolidge, Republican, 56.97
+Union, Calvin Coolidge, Republican, 62.74
+Van Wert, Calvin Coolidge, Republican, 53.14
+Vinton, Calvin Coolidge, Republican, 51.87
+Warren, Calvin Coolidge, Republican, 69.02
+Washington, Calvin Coolidge, Republican, 57.12
+Wayne, Calvin Coolidge, Republican, 53.8
+Williams, Calvin Coolidge, Republican, 56.41
+Wood, Calvin Coolidge, Republican, 65.33
+Wyandot, Calvin Coolidge, Republican, 50.86

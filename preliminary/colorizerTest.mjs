@@ -28,7 +28,8 @@ import canvas from "canvas";
 let years = [
   // "1856",
   // "1876",
-  "1928",
+  "1924",
+  // "1928",
   // "1932",
   // "1936",
   // "1940",
@@ -72,18 +73,18 @@ const states = [
   // // "Alaska",
   // "Arizona",
   // "Arkansas",
-  // "California",
+  "California",
   // // "Colorado",
-  "Connecticut",
-  // "Delaware",
+  // "Connecticut",
+  // // "Delaware",
   // // "District Of Columbia",
   "Florida",
   // "Georgia",
   // // "Hawaii",
-  // "Idaho",
-  // "Illinois",
+  "Idaho",
+  "Illinois",
   // "Indiana",
-  // "Iowa",
+  "Iowa",
   // "Kansas",
   // "Kentucky",
   "Louisiana",
@@ -91,34 +92,34 @@ const states = [
   // "Maryland",
   // "Massachusetts",
   // "Michigan",
-  // "Minnesota",
-  // "Mississippi",
+  "Minnesota",
+  // // "Mississippi",
   // "Missouri",
-  // "Montana",
-  // "Nebraska",
-  // "Nevada",
+  "Montana",
+  "Nebraska",
+  "Nevada",
   // "New Hampshire",
   // "New Jersey",
   // "New Mexico",
   // "New York",
   // "North Carolina",
-  // "North Dakota",
-  // "Ohio",
+  "North Dakota",
+  "Ohio",
   // "Oklahoma",
   // "Oregon",
   // "Pennsylvania",
   // "Rhode Island",
-  // "South Carolina",
-  // "South Dakota",
+  // // "South Carolina",
+  "South Dakota",
   // "Tennessee",
-  // "Texas",
+  "Texas",
   // "Utah",
   // "Vermont",
   // // "Virginia",
-  // "Washington",
+  "Washington",
   // "West Virginia",
-  // "Wisconsin",
-  // "Wyoming",
+  "Wisconsin",
+  "Wyoming",
 ];
 
 for (let year of years) {
@@ -354,6 +355,34 @@ function getCorrectColor(party, percentage) {
       return "rgb(222, 176, 42)";
     } else if (50 < percentage && percentage <= 60) {
       return "rgb(241, 201, 42)";
+    } else {
+      return "rgb(255, 255, 0)";
+    }
+  } else if (party === "Progressive" || party === "Populist") {
+    if (90 < percentage) {
+      return "rgb(22, 80, 22)";
+    } else if (80 < percentage && percentage <= 90) {
+      return "rgb(33, 120, 33)";
+    } else if (70 < percentage && percentage <= 80) {
+      return "rgb(48, 166, 48)";
+    } else if (60 < percentage && percentage <= 70) {
+      return "rgb(142, 210, 96)";
+    } else if (50 < percentage && percentage <= 60) {
+      return "rgb(170, 223, 135)";
+    } else if (40 < percentage && percentage <= 50) {
+      return "rgb(198, 233, 175)";
+    } else if (30 < percentage && percentage <= 40) {
+      return "rgb(198, 254, 175)";
+    } else if (20 < percentage && percentage <= 30) {
+      return "rgb(221, 255, 210)";
+    } else {
+      return "rgb(255, 255, 0)";
+    }
+  } else if (party === "Socialist") {
+    if (30 < percentage && percentage <= 40) {
+      return "rgb(254, 219, 193)";
+    } else if (20 < percentage && percentage <= 30) {
+      return "rgb(255, 232, 217)";
     } else {
       return "rgb(255, 255, 0)";
     }

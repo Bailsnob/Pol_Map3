@@ -7,8 +7,8 @@ import csvUtilities, {
   stripQuotesInArray,
 } from "./utilities/csv.mjs";
 
-let year = "1928";
-let state = "Washington";
+let year = "1924";
+let state = "Ohio";
 let mode = "Presidential";
 let start = 2;
 
@@ -19,13 +19,13 @@ csvToArray("csvbad.csv").then((totals) => {
     let newRow = [totals[i][0]];
     // console.log(totals[i][1], totals[i][3], totals[i][5]);
     if (Math.max(totals[i][start], totals[i][start + 2], totals[i][start + 4]) === totals[i][start]) {
-      newRow.push("Herbert Hoover");
+      newRow.push("Calvin Coolidge");
       newRow.push("Republican");
       newRow.push(totals[i][start]);
     } else if (
       Math.max(totals[i][start], totals[i][start + 2], totals[i][start + 4]) === totals[i][start + 2]
     ) {
-      newRow.push("Al Smith");
+      newRow.push("John W Davis");
       newRow.push("Democrat");
       newRow.push(totals[i][start + 2]);
     } else {
