@@ -28,7 +28,7 @@ import canvas from "canvas";
 let years = [
   // "1856",
   // "1876",
-  "1924",
+  // "1924",
   // "1928",
   // "1932",
   // "1936",
@@ -52,8 +52,9 @@ let years = [
   // "2000",
   // "2002",
   // "2004",
+  // "2006",
   // "2008",
-  // "2012",
+  "2012",
   // "2013",
   // "2014",
   // "2015",
@@ -66,60 +67,60 @@ let years = [
   // "2022"
 ];
 
-const mode = "Presidential";
+const mode = "Senatorial";
 
 const states = [
   // "Alabama",
   // // "Alaska",
   // "Arizona",
   // "Arkansas",
-  "California",
+  // "California",
   // // "Colorado",
   // "Connecticut",
-  // // "Delaware",
+  // "Delaware",
   // // "District Of Columbia",
-  "Florida",
+  // "Florida",
   // "Georgia",
-  // // "Hawaii",
-  "Idaho",
-  "Illinois",
+  // "Hawaii",
+  // "Idaho",
+  // "Illinois",
   // "Indiana",
-  "Iowa",
+  // "Iowa",
   // "Kansas",
   // "Kentucky",
-  "Louisiana",
+  // "Louisiana",
   // "Maine",
   // "Maryland",
   // "Massachusetts",
   // "Michigan",
-  "Minnesota",
-  // // "Mississippi",
+  // "Minnesota",
+  // "Mississippi",
   // "Missouri",
-  "Montana",
-  "Nebraska",
-  "Nevada",
+  // "Montana",
+  // "Nebraska",
+  // "Nevada",
   // "New Hampshire",
   // "New Jersey",
   // "New Mexico",
   // "New York",
   // "North Carolina",
-  "North Dakota",
-  "Ohio",
+  // "North Dakota",
+  // "Ohio",
   // "Oklahoma",
   // "Oregon",
   // "Pennsylvania",
   // "Rhode Island",
   // // "South Carolina",
-  "South Dakota",
+  // "South Dakota",
   // "Tennessee",
-  "Texas",
+  // "Texas",
   // "Utah",
   // "Vermont",
   // // "Virginia",
-  "Washington",
+  // "Washington",
   // "West Virginia",
-  "Wisconsin",
-  "Wyoming",
+  // "Wisconsin",
+  // "Wyoming",
 ];
 
 for (let year of years) {
@@ -293,6 +294,8 @@ function getCorrectColor(party, percentage) {
       return "rgb(255, 178, 178)";
     } else if (30 < percentage && percentage <= 40) {
       return "rgb(255, 204, 208)";
+    } else if (20 < percentage && percentage <= 30) {
+      return "rgb(255, 223, 225)";
     } else {
       return "rgb(255, 255, 0)";
     }
@@ -311,6 +314,8 @@ function getCorrectColor(party, percentage) {
       return "rgb(185, 215, 255)";
     } else if (30 < percentage && percentage <= 40) {
       return "rgb(211, 231, 255)";
+    } else if (20 < percentage && percentage <= 30) {
+      return "rgb(225, 239, 255)";
     } else {
       return "rgb(255, 255, 0)";
     }
@@ -333,7 +338,11 @@ function getCorrectColor(party, percentage) {
       return "rgb(255, 255, 0)";
     }
   } else if (party === "Independent") {
-    if (70 < percentage && percentage <= 80) {
+    if (90 < percentage) {
+      return "rgb(65, 65, 65)";
+    } else if (80 < percentage && percentage <= 90) {
+      return "rgb(90, 90, 90)";
+    } else if (70 < percentage && percentage <= 80) {
       return "rgb(115, 115, 115)";
     } else if (60 < percentage && percentage <= 70) {
       return "rgb(150, 150, 150)";
@@ -343,6 +352,10 @@ function getCorrectColor(party, percentage) {
       return "rgb(217, 217, 217)";
     } else if (30 < percentage && percentage <= 40) {
       return "rgb(230, 230, 230)";
+    } else if (20 < percentage && percentage <= 30) {
+      return "rgb(243, 243, 243)";
+    } else {
+      return "rgb(255, 255, 0)";
     }
   } else if (party === "Libertarian") {
     if (90 < percentage) {
