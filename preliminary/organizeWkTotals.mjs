@@ -8,7 +8,7 @@ import csvUtilities, {
 } from "./utilities/csv.mjs";
 
 let year = "2009";
-let state = "Virginia";
+let state = "New Jersey";
 let mode = "Gubernatorial";
 let start = 1;
 
@@ -19,13 +19,13 @@ csvToArray("csvbad.csv").then((totals) => {
     let newRow = [totals[i][0]];
     // console.log(totals[i][1], totals[i][3], totals[i][5]);
     if (Math.max(totals[i][start], totals[i][start + 2], totals[i][start + 4]) === totals[i][start]) {
-      newRow.push("Bob McDonnell");
+      newRow.push("Chris Christie");
       newRow.push("Republican");
       newRow.push(totals[i][start]);
     } else if (
       Math.max(totals[i][start], totals[i][start + 2], totals[i][start + 4]) === totals[i][start + 2]
     ) {
-      newRow.push("Creigh Deeds");
+      newRow.push("Jon Corzine");
       newRow.push("Democrat");
       newRow.push(totals[i][start + 2]);
     } else {

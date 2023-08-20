@@ -53,9 +53,11 @@ let years = [
   // "2002",
   // "2004",
   // "2006",
-  // "2008",
+  "2008",
   // "2009",
-  "2012",
+  // "2010",
+  // "2011",
+  // "2012",
   // "2013",
   // "2014",
   // "2015",
@@ -111,7 +113,7 @@ const states = [
   // "Oregon",
   // "Pennsylvania",
   // "Rhode Island",
-  // // "South Carolina",
+  // "South Carolina",
   // "South Dakota",
   // "Tennessee",
   // "Texas",
@@ -124,6 +126,7 @@ const states = [
   // "Wyoming",
 ];
 
+// for (let year = 2020; year > 1923; year -= 4) {
 for (let year of years) {
   for (let state of states) {
     csvToArray(`../db/${mode}/${year}/${state}.csv`).then(
