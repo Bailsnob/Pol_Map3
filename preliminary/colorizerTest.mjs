@@ -40,10 +40,12 @@ let years = [
   // "1960",
   // "1964",
   // "1968",
+  // "1970",
   // "1972", // problems below for VA
   // "1976",
   // "1980",
   // "1984",
+  // "1986",
   // "1988",
   // "1990",
   // "1992",
@@ -52,8 +54,9 @@ let years = [
   // "2000",
   // "2002",
   // "2004",
+  // "2005",
   // "2006",
-  "2008",
+  // "2008",
   // "2009",
   // "2010",
   // "2011",
@@ -86,7 +89,7 @@ const states = [
   // "Georgia",
   // "Hawaii",
   // "Idaho",
-  // "Illinois",
+  "Illinois",
   // "Indiana",
   // "Iowa",
   // "Kansas",
@@ -119,7 +122,7 @@ const states = [
   // "Texas",
   // "Utah",
   // "Vermont",
-  "Virginia",
+  // "Virginia",
   // "Washington",
   // "West Virginia",
   // "Wisconsin",
@@ -400,6 +403,24 @@ function getCorrectColor(party, percentage) {
       return "rgb(254, 219, 193)";
     } else if (20 < percentage && percentage <= 30) {
       return "rgb(255, 232, 217)";
+    } else {
+      return "rgb(255, 255, 0)";
+    }
+  } else if (party === "Reform" || party === "Constitution") {
+    if (90 < percentage) {
+      return "rgb(45, 25, 52)";
+    } else if (80 < percentage && percentage <= 90) {
+      return "rgb(103, 30, 255)";
+    } else if (70 < percentage && percentage <= 80) {
+      return "rgb(128, 50, 255)";
+    } else if (60 < percentage && percentage <= 70) {
+      return "rgb(153, 85, 255)";
+    } else if (50 < percentage && percentage <= 60) {
+      return "rgb(179, 128, 255)";
+    } else if (40 < percentage && percentage <= 50) {
+      return "rgb(204, 170, 255)";
+    } else if (30 < percentage && percentage <= 40) {
+      return "rgb(230, 205, 255)";
     } else {
       return "rgb(255, 255, 0)";
     }
