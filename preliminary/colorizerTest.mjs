@@ -54,8 +54,9 @@ let years = [
   // "2000",
   // "2002",
   // "2004",
-  // "2005",
+  "2005",
   // "2006",
+  // "2007",
   // "2008",
   // "2009",
   // "2010",
@@ -73,7 +74,7 @@ let years = [
   // "2022"
 ];
 
-const mode = "Senatorial";
+const mode = "Gubernatorial";
 
 const states = [
   // "Alabama",
@@ -89,7 +90,7 @@ const states = [
   // "Georgia",
   // "Hawaii",
   // "Idaho",
-  "Illinois",
+  // "Illinois",
   // "Indiana",
   // "Iowa",
   // "Kansas",
@@ -122,7 +123,7 @@ const states = [
   // "Texas",
   // "Utah",
   // "Vermont",
-  // "Virginia",
+  "Virginia",
   // "Washington",
   // "West Virginia",
   // "Wisconsin",
@@ -364,7 +365,7 @@ function getCorrectColor(party, percentage) {
     } else {
       return "rgb(255, 255, 0)";
     }
-  } else if (party === "Libertarian") {
+  } else if (party === "Libertarian" || party === "Connecticut for Lieberman" || party === "A Connecticut Party") {
     if (90 < percentage) {
       return "rgb(165, 129, 0)";
     } else if (80 < percentage && percentage <= 90) {

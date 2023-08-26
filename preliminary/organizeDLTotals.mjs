@@ -1,19 +1,19 @@
 import { readFileSync } from 'fs';
 import { arrayToCsv, convertNumbersInArray } from "./utilities/csv.mjs";
 
-const year = "2004";
-const state = "Illinois";
+const year = "2006";
+const state = "Virginia";
 const mode = "Senatorial";
 
 try {
   let data = readFileSync('csvbad.csv', 'utf8');
-  let dName = "Barack Obama";
-  let rName = "Alan Keyes";
-  let iName = "Rex Rammell";
+  let dName = "Jim Webb";
+  let rName = "George Allen";
+  let iName = "Bernie Sanders";
   let lastNames = [
     dName.split(' ')[dName.split(' ').length - 1],
     rName.split(' ')[rName.split(' ').length - 1],
-    // "Wallace", 
+    "Parker",
     "Other",
   ];
   let fullNames = [dName, rName, iName];
