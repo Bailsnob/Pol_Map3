@@ -53,8 +53,8 @@ let years = [
   // "1996",
   // "2000",
   // "2002",
-  // "2004",
-  "2005",
+  "2004",
+  // "2005",
   // "2006",
   // "2007",
   // "2008",
@@ -74,13 +74,13 @@ let years = [
   // "2022"
 ];
 
-const mode = "Gubernatorial";
+const mode = "Senatorial";
 
 const states = [
   // "Alabama",
   // // "Alaska",
   // "Arizona",
-  // "Arkansas",
+  "Arkansas",
   // "California",
   // // "Colorado",
   // "Connecticut",
@@ -123,7 +123,7 @@ const states = [
   // "Texas",
   // "Utah",
   // "Vermont",
-  "Virginia",
+  // "Virginia",
   // "Washington",
   // "West Virginia",
   // "Wisconsin",
