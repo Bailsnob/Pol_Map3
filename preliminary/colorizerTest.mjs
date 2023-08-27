@@ -52,8 +52,9 @@ let years = [
   // "1994",
   // "1996",
   // "2000",
-  // "2002",
-  "2004",
+  "2002",
+  // "2003",
+  // "2004",
   // "2005",
   // "2006",
   // "2007",
@@ -80,7 +81,7 @@ const states = [
   // "Alabama",
   // // "Alaska",
   // "Arizona",
-  "Arkansas",
+  // "Arkansas",
   // "California",
   // // "Colorado",
   // "Connecticut",
@@ -365,7 +366,7 @@ function getCorrectColor(party, percentage) {
     } else {
       return "rgb(255, 255, 0)";
     }
-  } else if (party === "Libertarian" || party === "Connecticut for Lieberman" || party === "A Connecticut Party") {
+  } else if (party === "Libertarian" || party === "Connecticut for Lieberman" || party === "A Connecticut Party" || party === "Independence") {
     if (90 < percentage) {
       return "rgb(165, 129, 0)";
     } else if (80 < percentage && percentage <= 90) {
