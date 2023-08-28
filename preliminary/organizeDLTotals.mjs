@@ -1,23 +1,23 @@
 import { readFileSync } from 'fs';
 import { arrayToCsv, convertNumbersInArray } from "./utilities/csv.mjs";
 
-const year = "2002";
-const state = "Texas";
+const year = "1998";
+const state = "Florida";
 const mode = "Senatorial";
 
 try {
   let data = readFileSync('csvbad.csv', 'utf8');
-  let dName = "Ron Kirk";
-  let rName = "John Cornyn";
-  let iName = "Michael Cloud";
+  let dName = "Bob Graham";
+  let rName = "Charlie Crist";
+  let iName = "Angus King";
   let lastNames = [
     dName.split(' ')[dName.split(' ').length - 1],
     rName.split(' ')[rName.split(' ').length - 1],
-    // "Germalic",
-    "Other",
+    // "Suddith",
+    // "Other",
   ];
   let fullNames = [dName, rName, iName];
-  let other = "Independence";
+  let other = "Independent";
   for (let name of lastNames) {
     data = replaceAll(data, name + "\t", "");
   }
