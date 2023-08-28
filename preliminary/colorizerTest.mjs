@@ -50,9 +50,9 @@ let years = [
   // "1990",
   // "1992",
   // "1994",
-  // "1996",
+  "1996",
   // "1997",
-  "1998",
+  // "1998",
   // "1999",
   // "2000",
   // "2001",
@@ -82,10 +82,10 @@ let years = [
 const mode = "Senatorial";
 
 const states = [
-  "Alabama",
+  // "Alabama",
   // // "Alaska",
   // "Arizona",
-  "Arkansas",
+  // "Arkansas",
   // "California",
   // // "Colorado",
   // "Connecticut",
@@ -95,7 +95,7 @@ const states = [
   // "Georgia",
   // "Hawaii",
   // "Idaho",
-  "Illinois",
+  // "Illinois",
   // "Indiana",
   // "Iowa",
   // "Kansas",
