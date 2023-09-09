@@ -48,7 +48,9 @@ let years = [
   // "1984",
   // "1986",
   // "1988",
+  "1989",
   // "1990",
+  // "1991",
   // "1992",
   // "1993",
   // "1994",
@@ -77,12 +79,12 @@ let years = [
   // "2017",
   // "2018",
   // "2019",
-  "2020",
+  // "2020",
   // "2021",
   // "2022"
 ];
 
-const mode = "Senatorial";
+const mode = "Gubernatorial";
 
 const states = [
   // "Alabama",
@@ -90,7 +92,7 @@ const states = [
   // "Arizona",
   // "Arkansas",
   // "California",
-  "Colorado",
+  // "Colorado",
   // "Connecticut",
   // "Delaware",
   // // "District Of Columbia",
@@ -115,7 +117,7 @@ const states = [
   // "Nebraska",
   // "Nevada",
   // "New Hampshire",
-  // "New Jersey",
+  "New Jersey",
   // "New Mexico",
   // "New York",
   // "North Carolina",
@@ -131,7 +133,7 @@ const states = [
   // "Texas",
   // "Utah",
   // "Vermont",
-  // "Virginia",
+  "Virginia",
   // "Washington",
   // "West Virginia",
   // "Wisconsin",
@@ -313,7 +315,7 @@ function getCorrectColor(party, percentage) {
     } else if (20 < percentage && percentage <= 30) {
       return "rgb(255, 223, 225)";
     } else {
-      return "rgb(255, 255, 0)";
+      return "rgb(0, 0, 0)";
     }
   } else if (party === "Democrat" || party === "Democratic") {
     if (90 < percentage) {
@@ -333,7 +335,7 @@ function getCorrectColor(party, percentage) {
     } else if (20 < percentage && percentage <= 30) {
       return "rgb(225, 239, 255)";
     } else {
-      return "rgb(255, 255, 0)";
+      return "rgb(0, 0, 0)";
     }
   } else if (party === "Dixiecrat") {
     if (90 < percentage) {
@@ -351,7 +353,7 @@ function getCorrectColor(party, percentage) {
     } else if (30 < percentage && percentage <= 40) {
       return "rgb(255, 204, 170)";
     } else {
-      return "rgb(255, 255, 0)";
+      return "rgb(0, 0, 0)";
     }
   } else if (party === "Independent") {
     if (90 < percentage) {
@@ -371,7 +373,7 @@ function getCorrectColor(party, percentage) {
     } else if (20 < percentage && percentage <= 30) {
       return "rgb(243, 243, 243)";
     } else {
-      return "rgb(255, 255, 0)";
+      return "rgb(0, 0, 0)";
     }
   } else if (party === "Libertarian" || party === "Connecticut for Lieberman" || party === "A Connecticut Party" || party === "Independence") {
     if (90 < percentage) {
@@ -385,7 +387,7 @@ function getCorrectColor(party, percentage) {
     } else if (50 < percentage && percentage <= 60) {
       return "rgb(241, 201, 42)";
     } else {
-      return "rgb(255, 255, 0)";
+      return "rgb(0, 0, 0)";
     }
   } else if (party === "Progressive" || party === "Populist") {
     if (90 < percentage) {
@@ -405,7 +407,7 @@ function getCorrectColor(party, percentage) {
     } else if (20 < percentage && percentage <= 30) {
       return "rgb(221, 255, 210)";
     } else {
-      return "rgb(255, 255, 0)";
+      return "rgb(0, 0, 0)";
     }
   } else if (party === "Socialist") {
     if (30 < percentage && percentage <= 40) {
@@ -413,7 +415,7 @@ function getCorrectColor(party, percentage) {
     } else if (20 < percentage && percentage <= 30) {
       return "rgb(255, 232, 217)";
     } else {
-      return "rgb(255, 255, 0)";
+      return "rgb(0, 0, 0)";
     }
   } else if (party === "Reform" || party === "Constitution") {
     if (90 < percentage) {
@@ -431,7 +433,7 @@ function getCorrectColor(party, percentage) {
     } else if (30 < percentage && percentage <= 40) {
       return "rgb(230, 205, 255)";
     } else {
-      return "rgb(255, 255, 0)";
+      return "rgb(0, 0, 0)";
     }
   }
   return "rgb(0, 0, 0)";
