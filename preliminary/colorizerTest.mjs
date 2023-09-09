@@ -28,6 +28,7 @@ import canvas from "canvas";
 let years = [
   // "1856",
   // "1876",
+  // "1920",
   // "1924",
   // "1928",
   // "1932",
@@ -48,7 +49,7 @@ let years = [
   // "1986",
   // "1988",
   // "1990",
-  "1992",
+  // "1992",
   // "1993",
   // "1994",
   // "1995",
@@ -76,7 +77,7 @@ let years = [
   // "2017",
   // "2018",
   // "2019",
-  // "2020",
+  "2020",
   // "2021",
   // "2022"
 ];
@@ -89,7 +90,7 @@ const states = [
   // "Arizona",
   // "Arkansas",
   // "California",
-  // // "Colorado",
+  "Colorado",
   // "Connecticut",
   // "Delaware",
   // // "District Of Columbia",
@@ -127,7 +128,7 @@ const states = [
   // "South Carolina",
   // "South Dakota",
   // "Tennessee",
-  "Texas",
+  // "Texas",
   // "Utah",
   // "Vermont",
   // "Virginia",

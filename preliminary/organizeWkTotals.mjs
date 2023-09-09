@@ -7,10 +7,10 @@ import csvUtilities, {
   stripQuotesInArray,
 } from "./utilities/csv.mjs";
 
-let year = "1993";
-let state = "New Jersey";
-let mode = "Gubernatorial";
-let start = 1;
+let year = "2020";
+let state = "Colorado";
+let mode = "Senatorial";
+let start = 2;
 
 csvToArray("csvbad.csv").then((totals) => {
   stripQuotesInArray(totals);
@@ -18,19 +18,19 @@ csvToArray("csvbad.csv").then((totals) => {
   for (let i = 0; i < totals.length; ++i) {
     let newRow = [totals[i][0]];
     // console.log(totals[i][1], totals[i][3], totals[i][5]);
-    if (Math.max(totals[i][start], totals[i][start + 2], totals[i][start + 4]) === totals[i][start]) {
-      newRow.push("George Allen");
+    if (Math.max(totals[i][start], totals[i][start + 2], totals[i][start + 4]) === totals[i][start + 2]) {
+      newRow.push("Cory Gardner");
       newRow.push("Republican");
-      newRow.push(totals[i][start]);
-    } else if (
-      Math.max(totals[i][start], totals[i][start + 2], totals[i][start + 4]) === totals[i][start + 2]
-    ) {
-      newRow.push("Mary Sue Terry");
-      newRow.push("Democrat");
       newRow.push(totals[i][start + 2]);
+    } else if (
+      Math.max(totals[i][start], totals[i][start + 2], totals[i][start + 4]) === totals[i][start]
+    ) {
+      newRow.push("John Hickenlooper");
+      newRow.push("Democrat");
+      newRow.push(totals[i][start]);
     } else {
-      newRow.push("Robert M La Follette");
-      newRow.push("Progressive");
+      newRow.push("Ross Perot");
+      newRow.push("Independent");
       newRow.push(Math.max(totals[i][start], totals[i][start + 2], totals[i][start + 4]/*, totals[i][start + 6]/**/));
     }
     totals[i] = newRow;
