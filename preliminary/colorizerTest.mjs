@@ -28,6 +28,7 @@ import canvas from "canvas";
 let years = [
   // "1856",
   // "1876",
+  "1882",
   // "1920",
   // "1924",
   // "1928",
@@ -48,7 +49,7 @@ let years = [
   // "1984",
   // "1986",
   // "1988",
-  "1989",
+  // "1989",
   // "1990",
   // "1991",
   // "1992",
@@ -117,9 +118,9 @@ const states = [
   // "Nebraska",
   // "Nevada",
   // "New Hampshire",
-  "New Jersey",
+  // "New Jersey",
   // "New Mexico",
-  // "New York",
+  "New York",
   // "North Carolina",
   // "North Dakota",
   // "Ohio",
@@ -133,7 +134,7 @@ const states = [
   // "Texas",
   // "Utah",
   // "Vermont",
-  "Virginia",
+  // "Virginia",
   // "Washington",
   // "West Virginia",
   // "Wisconsin",
@@ -386,6 +387,10 @@ function getCorrectColor(party, percentage) {
       return "rgb(222, 176, 42)";
     } else if (50 < percentage && percentage <= 60) {
       return "rgb(241, 201, 42)";
+    } else if (40 < percentage && percentage <= 50) {
+      return "rgb(255, 221, 85)";
+    } else if (30 < percentage && percentage <= 40) {
+      return "rgb(255, 238, 170)";
     } else {
       return "rgb(0, 0, 0)";
     }
