@@ -8,11 +8,11 @@ import csvUtilities, {
 } from "./utilities/csv.mjs";
 import jsonUtilities, { jsonToObjLiteral } from "./utilities/json.mjs";
 
+
 getBlankMapSizes().then((sizes) => {
   getStateBoundaries().then((boundaries) => {
     getCountyLatLngs().then((countyLatLngs) => {
-      //note: sizes produces an error where the quotes are not removed and numbers are not made
-      //note: boundaries works fine
+      // taking the data for the size of the pictures, the states, and the county coordinates
       for (let i = 1; i < sizes.length; ++i) {
         let sizesData = sizes[i];
         let stateName = sizesData[0];
@@ -24,8 +24,8 @@ getBlankMapSizes().then((sizes) => {
             boundariesData = boundary;
             break;
           }
-        }
-        if (!boundariesData) {
+        } // finding the specific boundary for the state in question
+        if (!boundariesData) { // failsafe in case the boundary data isn't ready yet
           console.error("No boundary matched " + stateName + ".");
           return;
         }
@@ -41,21 +41,23 @@ getBlankMapSizes().then((sizes) => {
               boundariesData.min_lat,
               boundariesData.max_lng,
               boundariesData.min_lng
-            );
+            ); // dilating the county's latitude longitude coordinates into pixel coordinates
             seedPointArr.push([
               countyLatLngs[j][0],
               countyPixelCoords[0],
               countyPixelCoords[1],
-            ]);
+            ]); // adding the pixel coordinates for that county into the 
           }
         }
-        syncArrayToCsv(seedPointArr, "./CountyCoordsbyState/" + stateName + ".csv");
+        syncArrayToCsv( // creating a csv containing every state's county coordinates
+          seedPointArr,
+          "./CountyCoordsbyState/" + stateName + ".csv"
+        );
       }
     });
   });
 });
 
-//new issue, this function does not account for the negative y principle
 function findSeedPoint(
   minX,
   maxX,
@@ -66,18 +68,21 @@ function findSeedPoint(
   minLat,
   maxLong,
   minLong
-) {
+) { 
+  // dilating the x and y of the county latitude longitude coordinates into
+  // pixel coordinates to maximize accuracy
   return [
     ((countyLatLng[1] - minLong) * (maxX - minX)) / (maxLong - minLong) + minX,
-    maxY - (((countyLatLng[0] - minLat) * (maxY - minY)) / (maxLat - minLat) + minY),
+    maxY -
+      (((countyLatLng[0] - minLat) * (maxY - minY)) / (maxLat - minLat) + minY),
   ];
 }
 
 function getBlankMapSizes() {
   return new Promise((resolve, reject) => {
     csvToArray("BlankMapSizes.csv").then((results) => {
-      stripQuotesInArray(results);
-      convertNumbersInArray(results);
+      stripQuotesInArray(results); // taking away any quotes in the csv
+      convertNumbersInArray(results); // converting all numbers into ints to be malleable
       resolve(results);
     });
   });
@@ -85,7 +90,7 @@ function getBlankMapSizes() {
 
 function getStateBoundaries() {
   return new Promise((resolve, reject) => {
-    let results = jsonToObjLiteral("stateBoundaries.json");
+    let results = jsonToObjLiteral("stateBoundaries.json"); // turning the state boundary latitude longitudes into a malleable object literal
     resolve(results);
   });
 }
@@ -97,17 +102,11 @@ function getCountyLatLngs() {
       for (let row = 0; row < rawData.length; ++row) {
         let oldRow = rawData[row];
         let replacementRow = [oldRow[0], oldRow[5], oldRow[6], oldRow[7]];
-        rawData[row] = replacementRow;
+        rawData[row] = replacementRow; // taking only important county info
       }
-
-      stripQuotesInArray(rawData);
-      convertNumbersInArray(rawData);
+      stripQuotesInArray(rawData); // taking away quotes
+      convertNumbersInArray(rawData); // converting all numbers into usable ints
       resolve(rawData);
     });
   });
-}
-
-function strip(str) {
-  result = str.trim();
-  return result.slice(1, result.length - 1);
 }

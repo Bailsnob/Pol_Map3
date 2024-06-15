@@ -8,27 +8,14 @@ import csvUtilities, {
 } from "./utilities/csv.mjs";
 import canvas from "canvas";
 
-//notes on which seedpoint csvs work:
-//  - Alaska is garbage
-//  - Arkansas picture has weird black splotch in the top left corner
-//  - Colorado and Hawaii maps have counties added recently
-//  - Washington is messed up for some reason
-
-//if state has space:
-//  - no space
-//  - no space
-//  - space
-//  - space
-//  - no space
-
-//black and whitifying:
-//  - go to image --> mode --> indexed mode --> use black and white 1 bit pallette
-
 // let state = "Virginia";
+
+// list of years
 let years = [
   // "1856",
   // "1876",
-  "1882",
+  // "1882",
+  // "1916",
   // "1920",
   // "1924",
   // "1928",
@@ -38,14 +25,21 @@ let years = [
   // "1944",
   // "1948",
   // "1952",
+  // "1954",
   // "1956",
+  // "1958",
   // "1960",
+  // "1962",
   // "1964",
+  // "1966",
   // "1968",
   // "1970",
   // "1972", // problems below for VA
+  // "1974",
   // "1976",
+  // "1978",
   // "1980",
+  // "1982",
   // "1984",
   // "1986",
   // "1988",
@@ -82,14 +76,16 @@ let years = [
   // "2019",
   // "2020",
   // "2021",
-  // "2022"
+  // "2022",
+  "2023",
 ];
 
 const mode = "Gubernatorial";
+const edition = ""; // denotes special election and other things
 
 const states = [
   // "Alabama",
-  // // "Alaska",
+  // "Alaska",
   // "Arizona",
   // "Arkansas",
   // "California",
@@ -120,7 +116,7 @@ const states = [
   // "New Hampshire",
   // "New Jersey",
   // "New Mexico",
-  "New York",
+  // "New York",
   // "North Carolina",
   // "North Dakota",
   // "Ohio",
@@ -128,115 +124,107 @@ const states = [
   // "Oregon",
   // "Pennsylvania",
   // "Rhode Island",
-  // "South Carolina",
+  // // "South Carolina",
   // "South Dakota",
   // "Tennessee",
   // "Texas",
   // "Utah",
   // "Vermont",
-  // "Virginia",
+  // // "Virginia",
   // "Washington",
   // "West Virginia",
   // "Wisconsin",
   // "Wyoming",
 ];
 
-// for (let year = 2020; year > 1923; year -= 4) {
 for (let year of years) {
   for (let state of states) {
-    csvToArray(`../db/${mode}/${year}/${state}.csv`).then(
-      (totals) => {
-        convertNumbersInArray(totals);
-        // console.log(totals);
-        canvas
-          .loadImage(`./BlankMapsBW/${state.replace(" ", "")}County.png`)
-          .then((img) => {
-            csvToArray("./data/BlankMapSizes.csv").then((sizes) => {
-              stripQuotesInArray(sizes);
-              convertNumbersInArray(sizes);
-              let stateIndex;
-              for (let i = 0; i < sizes.length; ++i) {
-                if (sizes[i][0] === state) {
-                  stateIndex = i;
-                }
+    //converting the election data from each individual csv chosen into an array
+    csvToArray(`../db/${mode}/${year}/${state}.csv`).then((totals) => {
+      convertNumbersInArray(totals); // making all numbers into ints
+      canvas
+        .loadImage(
+          `./BlankMapsBW/${state.replace(" ", "")}County${edition}.png`
+        )
+        .then((img) => {
+          //loading blank image
+          csvToArray("./data/BlankMapSizes.csv").then((sizes) => {
+            stripQuotesInArray(sizes);
+            convertNumbersInArray(sizes);
+            let stateIndex; // finding the correct size for the state's image
+            for (let i = 0; i < sizes.length; ++i) {
+              if (sizes[i][0] === state) {
+                stateIndex = i;
               }
+            }
 
-              const can = canvas.createCanvas(
-                sizes[stateIndex][1],
-                sizes[stateIndex][2]
-              );
-              const con = can.getContext("2d");
-              con.fillStyle = "white";
-              con.fillRect(0, 0, sizes[stateIndex][1], sizes[stateIndex][2]);
-              con.drawImage(
-                img,
-                0,
-                0,
-                sizes[stateIndex][1],
-                sizes[stateIndex][2]
-              );
+            const can = canvas.createCanvas(
+              // creating a canvas
+              sizes[stateIndex][1],
+              sizes[stateIndex][2]
+            );
+            const con = can.getContext("2d"); // creating context for the canvas
+            con.fillStyle = "white";
+            con.fillRect(0, 0, sizes[stateIndex][1], sizes[stateIndex][2]);
+            con.drawImage(
+              img,
+              0,
+              0,
+              sizes[stateIndex][1],
+              sizes[stateIndex][2]
+            ); // drawing the image
 
-              csvToArray(`./CountyCoordsbyState/${state}.csv`).then(
-                (seedPoints) => {
-                  convertNumbersInArray(seedPoints);
-                  con.fillStyle = "red";
-                  for (let i = 0; i < seedPoints.length; ++i) {
-                    let countyRow;
-                    for (let j = 0; j < totals.length; ++j) {
-                      // try {
-                      //   seedPoints[j][0].toLowerCase();
-                      // }
-                      // catch {
-                      //   console.log(j, totals[j], totals[j][0]);
-                      // }
-                      if (
-                        totals[j][0] /*.toLowerCase()*/ ===
-                        seedPoints[i][0] /*.toLowerCase()*/
-                      ) {
-                        // console.log("match found");cls
-                        colorRegion(
-                          seedPoints[i][1],
-                          seedPoints[i][2],
-                          sizes[stateIndex][1],
-                          sizes[stateIndex][2],
-                          con,
-                          getCorrectColor(totals[j][2], totals[j][3])
-                        );
-                        // console.log(getCorrectColor(totals[j][2], totals[j][3]));
-                      }
-                    }
-
-                    // con.fillRect(seedPoints[i][1] - 1, seedPoints[i][2] - 1, 2, 2);
-                  }
-                  canvas
-                    .loadImage(
-                      `./CountyMapsOutline/${state.replace(
-                        " ",
-                        ""
-                      )}CountyOutline.png`
-                    )
-                    .then((img) => {
-                      con.drawImage(
-                        img,
-                        0,
-                        0,
+            csvToArray(`./CountyCoordsbyState/${state}${edition}.csv`).then(
+              (seedPoints) => {
+                convertNumbersInArray(seedPoints);
+                con.fillStyle = "red";
+                for (let i = 0; i < seedPoints.length; ++i) {
+                  let countyRow;
+                  for (let j = 0; j < totals.length; ++j) {
+                    if (
+                      // checking to see if it's the right county
+                      totals[j][0] === seedPoints[i][0]
+                    ) {
+                      colorRegion(
+                        seedPoints[i][1],
+                        seedPoints[i][2],
                         sizes[stateIndex][1],
-                        sizes[stateIndex][2]
-                      );
-                      fs.writeFileSync(
-                        `./ColoredMaps/${mode}/${year}/${state}.png`,
-                        can.toBuffer("image/png")
-                      );
-                    });
+                        sizes[stateIndex][2],
+                        con,
+                        getCorrectColor(totals[j][2], totals[j][3])
+                      ); // coloring the region based on the percentage
+                    }
+                  }
                 }
-              );
-            });
+                canvas
+                  .loadImage(
+                    `./CountyMapsOutline/${state.replace(
+                      " ",
+                      ""
+                    )}County${edition}Outline.png`
+                  )
+                  .then((img) => {
+                    con.drawImage(
+                      img,
+                      0,
+                      0,
+                      sizes[stateIndex][1],
+                      sizes[stateIndex][2]
+                    );
+                    fs.writeFileSync(
+                      `./ColoredMaps/${mode}/${year}/${state}.png`,
+                      can.toBuffer("image/png")
+                    ); // creating the image file
+                  });
+              }
+            );
           });
-      }
-    );
+        });
+    });
   }
 }
 
+// colors the region by looping through and coloring pixels until it hits the black pixels at the county border
 function colorRegion(seedPointX, seedPointY, width, height, context, color) {
   const isDrawn = [];
   for (let row = 0; row < height; ++row) {
@@ -254,31 +242,22 @@ function colorRegion(seedPointX, seedPointY, width, height, context, color) {
   context.fillRect(seedPointX, seedPointY, 1, 1);
   while (frontier.length) {
     let newFrontier = [];
-    // console.log(frontier.length);
     for (let point of frontier) {
-      // console.log("apple");
       for (let dy = -1; dy < 2; ++dy) {
-        // console.log("banana");
         let y = point.y + dy;
         if (y < 0 || y >= height) continue;
         for (let dx = -1; dx < 2; ++dx) {
-          // console.log("orange");
           if (dx === 0 && dy === 0) continue;
           if (dx * dy !== 0) continue;
           let x = point.x + dx;
-          // console.log(x, y);
           try {
             if (x < 0 || x >= width) continue;
-            // console.log("***");
-            // console.log(x, y, width, height);
             if (isDrawn[y][x]) continue;
             let rgba = getRGBA(x, y, imgData, width);
             if (rgba.r === 0 && rgba.g === 0 && rgba.b === 0) {
-              // console.log(x, y);
               context.fillRect(x, y, 1, 1);
             }
             if (rgba.r !== 255 || rgba.g !== 255 || rgba.b !== 255) continue;
-            // console.log(x, y);
             context.fillRect(x, y, 1, 1);
             newFrontier.push({ x: x, y: y });
             isDrawn[y][x] = true;
@@ -295,8 +274,7 @@ function colorRegion(seedPointX, seedPointY, width, height, context, color) {
   }
 }
 
-function drawOverlay(context, width, height, fileName) {}
-
+// returns the correct rgb shade based on the party and its winning percentage
 function getCorrectColor(party, percentage) {
   if (party === "Republican") {
     if (90 < percentage) {
@@ -376,7 +354,12 @@ function getCorrectColor(party, percentage) {
     } else {
       return "rgb(0, 0, 0)";
     }
-  } else if (party === "Libertarian" || party === "Connecticut for Lieberman" || party === "A Connecticut Party" || party === "Independence") {
+  } else if (
+    party === "Libertarian" ||
+    party === "Connecticut for Lieberman" ||
+    party === "A Connecticut Party" ||
+    party === "Independence"
+  ) {
     if (90 < percentage) {
       return "rgb(165, 129, 0)";
     } else if (80 < percentage && percentage <= 90) {
@@ -422,7 +405,13 @@ function getCorrectColor(party, percentage) {
     } else {
       return "rgb(0, 0, 0)";
     }
-  } else if (party === "Reform" || party === "Constitution") {
+  } else if (
+    party === "Reform" ||
+    party === "Constitution" ||
+    party === "Know Nothing" ||
+    party === "American" ||
+    party === "Native American"
+  ) {
     if (90 < percentage) {
       return "rgb(45, 25, 52)";
     } else if (80 < percentage && percentage <= 90) {

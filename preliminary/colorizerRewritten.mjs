@@ -60,46 +60,33 @@ function colorRegion(seedPointX, seedPointY, width, height, con, color) {
   con.fillStyle = color;
   con.fillRect(seedPointX, seedPointY, 1, 1);
   while (frontier.length) {
-    // console.log("TOP OF WHITE LOOP");
     let newFrontier = [];
     for (let point of frontier) {
-      // console.log("  POINT IN FRONTIER");
-      // console.log(point);
       for (let dy = -1; dy < 2; ++dy) {
         let y = point.y + dy;
         if (y < 0 || y >= height) {
-          // console.log("    A");
           continue;
         }
         for (let dx = -1; dx < 2; ++dx) {
-          // console.log(dx, dy);
           if (dx === 0 && dy === 0) {
-            // console.log("    B");
             continue;
           }
           if (dx * dy !== 0) {
-            // console.log("    C");
             continue;
           }
           let x = point.x + dx;
           if (x < 0 || x >= width) {
-            // console.log("    D");
             continue;
           }
           if (isDrawn[y][x]) {
-            // console.log("    E");
             continue;
           }
-          // console.log("    MADE IT");
           let rgba = getRGBA(x, y, imgData, width);
-          // console.log("    ", rgba);
           if (rgba.r === 0 && rgba.g === 0 && rgba.b === 0) {
-            // console.log("    F", rgba);
             con.fillRect(x, y, 1, 1);
           }
           if (rgba.r !== 255 || rgba.g !== 255 || rgba.b !== 255) {
             continue;
-            // console.log("    G");
           }
           con.fillRect(x, y, 1, 1);
           newFrontier.push({ x: x, y: y });
@@ -118,7 +105,6 @@ function colorRegions(electionData, seeds, width, height, con) {
   for (let i = 0; i < seeds.length; ++i) {
     for (let j = 0; j < electionData.length; ++j) {
       if (electionData[j][0] === seeds[i][0]) {
-        // console.log("match found");
         colorRegion(
           seeds[i][1],
           seeds[i][2],
