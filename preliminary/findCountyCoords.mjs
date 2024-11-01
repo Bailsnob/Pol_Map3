@@ -46,7 +46,7 @@ getBlankMapSizes().then((sizes) => {
               countyLatLngs[j][0],
               countyPixelCoords[0],
               countyPixelCoords[1],
-            ]); // adding the pixel coordinates for that county into the 
+            ]); // adding the pixel coordinates for that county into the seed point array
           }
         }
         syncArrayToCsv( // creating a csv containing every state's county coordinates
@@ -96,7 +96,7 @@ function getStateBoundaries() {
 }
 
 function getCountyLatLngs() {
-  //important rows ar 0, 5, 6, 7
+  //important rows are 0, 5, 6, 7
   return new Promise((resolve, reject) => {
     csvToArray("uscounties.csv").then((rawData) => {
       for (let row = 0; row < rawData.length; ++row) {
